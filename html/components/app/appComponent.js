@@ -1,9 +1,7 @@
 import React from 'react'
-// import { TabBar } from 'antd-mobile';
-// import 'antd-mobile/dist/antd-mobile.css';
-// import PropTypes from 'prop-types';
-import { hashHistory } from 'react-router'
 
+
+import { hashHistory } from 'react-router'
 import '../../libs/icon/iconfont.css'
 
 import FooterComponent from '../common/footer/footerComponent.js'
