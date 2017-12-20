@@ -1,0 +1,8 @@
+﻿
+#过滤文件夹
+/node_modules
+/package-lock.json
+
+#过滤文件(一行写一个)
+*.zip
+*.rar
