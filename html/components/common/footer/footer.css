@@ -21,17 +21,33 @@
     flex:1;
     text-align:center;
     height:1.333333rem;
-    // border:0.013333rem solid #ccc;
+    border:0.013333rem solid #ccc;
     display:flex;
     flex-direction:column;
+
     padding-top:0.133333rem;
 }
 .footer ul li i{
     font-size:0.666667rem;
-    // border:0.013333rem solid #ccc;
+ border:0.013333rem solid #ccc;
 }
 .footer ul li p{
     margin:0;
     font-size:26px;
-    // border:0.013333rem solid #ccc;
+   border:0.013333rem solid #ccc;
+   padding-top:0.2rem;
 }
+
+   
+
+.footer ul li i{
+    font-size:0.586667rem;
+    font-weight:bold;
+}
+.footer ul li p{
+    margin:0;
+    padding:0.066667rem 0;
+    font-size:0.346667rem;
+}
+.changeRed{color:red;}
+
