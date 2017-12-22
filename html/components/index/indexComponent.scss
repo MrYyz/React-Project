@@ -1,0 +1,140 @@
+html,body{
+    height: 100%;
+}
+.indexheader{
+    height: 1.932367rem;
+    border:1px solid #ccc;
+
+    .li_imfor{
+        margin-top: .177134rem;
+        display: flex;
+        justify-content: space-around;
+        p{
+            height: .724638rem;
+            background: #EFEEF3;
+            display: flex;
+            width: 7.246377rem;
+            border-radius: .161031rem;
+            margin-left: .241546rem;
+            padding-left: .080515rem;
+        span{
+            font-size: .499195rem;
+            line-height: .724638rem;
+            height: 100%;
+            color:#CCCCCC;  
+        }
+        span:last-child{
+
+            margin-left: .273752rem;
+            input{
+                font-size: .338164rem;
+                color:#8D8D8D;
+                display: block;
+                box-sizing: border-box;
+                background: #EFEEF3;
+                border: 0 none;
+                height: 100%;
+                width: 100%;
+
+            }
+        }
+    }
+    span.icon-tips{
+      
+        height: .724638rem;
+        line-height:.724638rem;       
+        font-size: .75rem;
+    }
+    }
+}
+ul.li_nav{
+    display: flex;
+    width: 5.716586rem;
+    margin:0 auto;
+    margin-top: .161031rem;
+   
+    li{
+        width: 1.11111rem;
+        margin-left: .161031rem;
+        height: .740741rem;
+        line-height: .740741rem;
+        color:#BFBFBF;
+        border-bottom: .024155rem solid white;
+        text-align: center;
+    }
+    .li1{
+        color:#D9194A;
+        border-bottom: .024155rem solid #D9194A;
+    }
+    .red{
+        color:#D9194A;
+        border-bottom: .024155rem solid #D9194A;
+        
+    }
+}
+.indexbanner{
+    height: 4.347826rem;
+    overflow: hidden;
+    .bannerul{
+        height: 100%;
+        display: flex;
+        li{
+            height: 100%;
+            width: 100%;
+            background-position: 50% 100%;
+        }
+    }
+}
+.indexbanner{
+    position: relative;
+    .bannerul{
+        position: absolute;
+        top:0px;
+        left: 0px;
+    }
+}
+
+#container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .indexmain{
+        flex:1;
+        overflow: auto;
+    }
+}
+.index_routes{
+    height: 1.94847rem;
+    display: flex;
+   
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex:1;
+        span{
+            width: 100%;
+            text-align: center;
+        }
+        span:first-child{
+            margin-top: .37037rem;
+            font-size: .692432rem;
+        }
+        span:last-child{
+            font-size: .273752rem;
+            font-weight: bold;
+        
+        }
+    }
+}
+.thelist{
+    background: #F0EFF4;
+    h1{
+        height: .885668rem;
+        line-height:  .885668rem;;
+        font-size: .305958rem;
+        text-align: center;
+        color: #A0A0A2;
+        
+    }
+}

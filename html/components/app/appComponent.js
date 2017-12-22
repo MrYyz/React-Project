@@ -1,4 +1,6 @@
 import React from 'react'
+
+
 import { hashHistory } from 'react-router'
 import '../../libs/icon/iconfont.css'
 import './app.scss'
@@ -15,5 +17,3 @@ export default class AppCompont extends React.Component{
     )
   }
 }
-
-
