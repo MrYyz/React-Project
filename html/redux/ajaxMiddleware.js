@@ -1,9 +1,10 @@
-import http from '../utils/httpClient'
+import http from '../utils/httpClient';
 
 export function ajaxMiddleware(api){
+    // console.log('Running ajaxMiddleware')
     return function(dispatch){
         return function(action){
-            const {types, url, method = 'get', params = {}} = action
+            const {types, url, method, params = {}} = action
             if(!url){
                 return dispatch(action)
             }
@@ -12,7 +13,7 @@ export function ajaxMiddleware(api){
                 type: 'beforeRequest'
             })
             if(url){
-                http.get(url, params).then(res => {
+                http[method](url, params).then(res => {
                     api.dispatch({
                         type: 'Requested',
                         response: res
