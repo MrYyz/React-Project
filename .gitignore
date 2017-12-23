@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+
+=======
 ﻿
+>>>>>>> 6a876861e6c899e0c0420c409050fd109d1c948e
 #过滤文件夹
 /node_modules
 /package-lock.json
 
 #过滤文件(一行写一个)
+<<<<<<< HEAD
+#.gitignore
+=======
+>>>>>>> 6a876861e6c899e0c0420c409050fd109d1c948e
 *.zip
 *.rar

@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux'
-// import indexReducer from '../components/datagrid/datagridReducer'
-import indexReducer from '../components/index/indexReducer'
+import LoginReducer from '../components/login/loginReducer.js'
+import RegisterReducer from '../components/register/registerReducer.js'
+
 export default combineReducers({
-    indexReducer
+    LoginReducer,RegisterReducer
 })
