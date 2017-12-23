@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, hashHistory} from 'react-router'
 import AppComponent from '../components/app/appComponent'
-<<<<<<< HEAD
+
 import ProductsComponent from '../components/products/productsComponent'
 import IndexComponent from '../components/index/indexComponent'
 import Indexregist from '../components/indexregist/indexregist'
