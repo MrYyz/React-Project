@@ -3,27 +3,35 @@ import http from '../utils/httpClient'
 export function ajaxMiddleware(api){
     return function(dispatch){
         return function(action){
-           
-            const {types, url, method = 'get', params = {}} = action
+           console.log(action,'---------------action');
+            const {types, url, method = 'get', components,params={},banner,handbag} = action
             let response='';
             if(!url){
                 return dispatch(action)
             }
 
             api.dispatch({
-                type: 'beforeRequest',
-                res: response
+                type: 'beforeRequest'
+                
             })
             if(url){
 
                 http.get(url, params).then(res => {
-                    response=res;
+                   
                     
                     api.dispatch({
                         type: 'Requested',
-                        res: response
+                        response: res,
+                        components: components,
+                        banner:banner,
+                        handbag:handbag
                     })
                    
+                }).catch(error => {
+                    api.dispatch({
+                        type: 'requestError',
+                        error
+                    })
                 })
             
             }

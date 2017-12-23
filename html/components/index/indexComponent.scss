@@ -61,6 +61,7 @@ ul.li_nav{
         color:#BFBFBF;
         border-bottom: .024155rem solid white;
         text-align: center;
+        font-size: .338164rem
     }
     .li1{
         color:#D9194A;
@@ -137,4 +138,50 @@ ul.li_nav{
         color: #A0A0A2;
         
     }
+}
+.indexfooter{
+    height: 1.336554rem;
+}
+.indexgoodslist{
+        display: flex;
+        flex-wrap: wrap;
+      
+.indexlist{
+    margin-left: .330113rem;
+    margin-top: .241546rem;
+    border-radius: .161031rem;
+    height:6.747182rem;
+    background: white;
+    width: 45%;
+    div.Indeximg{
+        width: 90%;
+       
+        height: 3.913043rem;
+        margin: .161031rem auto;
+        background-size:100% 100%;
+    }
+    p:nth-of-type(1){
+        font-size: .322061rem;
+        color: #7B7B7B;
+        line-height: .483092rem;
+        width: 3.381643rem;
+        margin:0 auto;
+        height: 1.046699rem;
+        overflow: hidden;
+    }
+    p:nth-of-type(2){
+        font-size: .241546rem;
+        color:#D42252;
+        width: 3.381643rem;
+        margin:0 auto;
+        margin-top: .273752rem;
+        margin-bottom: .354267rem;
+    }     
+    p:nth-of-type(3){
+        font-size: .193237rem;
+        color:#9D9D9D;
+        width: 3.381643rem;
+        margin:0 auto;
+    }      
+}
 }
