@@ -1,5 +1,7 @@
 .footer{
-    border-top:0.026667rem solid #F1F1F5;
+
+    border-top:0.026667rem solid #ccc;
+    width:100%;
     padding:0;
     margin:0;
     box-sizing:border-box;
@@ -17,17 +19,17 @@
     flex:1;
     text-align:center;
     height:1.333333rem;
-    // border:0.013333rem solid #ccc;
     display:flex;
     flex-direction:column;
-    padding: 0.066667rem 0;
+    padding-top:0.2rem;
 }
 .footer ul li i{
-    font-size:0.666667rem;
-    // border:0.013333rem solid #ccc;
+    font-size:0.586667rem;
+    font-weight:bold;
 }
 .footer ul li p{
     margin:0;
+    padding:0.066667rem 0;
     font-size:0.346667rem;
-    // border:0.013333rem solid #ccc;
 }
+.changeRed{color:red;}

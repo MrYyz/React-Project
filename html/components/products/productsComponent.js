@@ -4,7 +4,7 @@ import React from 'react'
 export default class ProductsComponent extends React.Component{
     render(){
         // return <DataGrid url="products.php"></DataGrid>
-        const style = {color:'#ddd','font-size':'.25rem'}
+        const style = {color:'#ddd','fontSize':'.25rem'}
         return (
             <div>
                 <h2 style={style}>

@@ -1,10 +1,12 @@
-import http from '../utils/httpClient'
+import http from '../utils/httpClient';
 
 export function ajaxMiddleware(api){
     return function(dispatch){
         return function(action){
-            const {types, url, method = 'get', params = {}} = action
-            // console.log(types);
+
+            const {types, url, method = 'get', components,params={},banner,handbag} = action
+            let response='';
+
             if(!url){
                 return dispatch(action)
             }
@@ -13,18 +15,27 @@ export function ajaxMiddleware(api){
                 type: types[0]
             })
             if(url){
-                http.get(url, params).then(res => {
+
+                http[method](url, params).then(res => {
+
                     api.dispatch({
                         type: types[1],
-                        response: res
+                        response: res,
+                        components: components,
+                        banner:banner,
+                        handbag:handbag
                     })
+                   
                 }).catch(error => {
                     api.dispatch({
                         type: types[2],
                         error
                     })
                 })
+            
             }
+            
+          
         }
     }
 }

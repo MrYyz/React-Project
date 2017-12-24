@@ -79,9 +79,9 @@ html,body {
 			.x_big {font-size:.82666667rem;}
 		}
 	}
-	.x_order {
+	.x_order_my {
 		margin: .53333333rem 0;
-		.x_order_head {
+		.x_order_my_head {
 			background-color:#fff;
 			display: flex;
 			justify-content: space-between;
@@ -93,7 +93,7 @@ html,body {
 			height: 1.33333333rem;// 60px
 			border:.01333333rem solid #F1F1F5;
 		}
-		.x_order_body {
+		.x_order_my_body {
 			background-color:#fff;
 			ul{
 				height:2.13333333rem; // 160px
@@ -102,7 +102,7 @@ html,body {
 				text-align:center;
 				align-items: center;
 				span {display:block;margin-top:.2rem;font-size:.34666667rem;}
-				i{font-size:0.666667rem;}
+				i{font-size:0.666667rem;;}
 				.x_big {font-size:.72666667rem;}
 			}
 		}

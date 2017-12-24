@@ -65,14 +65,14 @@ class Mycompoent extends React.Component {
 					</ul>
 				</div>
 
-				<div className="x_order">
+				<div className="x_order_my">
 					<Link to="order">
-						<div className="x_order_head">
+						<div className="x_order_my_head">
 							<span>订单管理</span>
 							<i className="iconfont icon-arrow-down"></i>
 						</div>
 					</Link>
-					<div className="x_order_body">
+					<div className="x_order_my_body">
 						<ul>
 							<li onClick={this.hash_push.bind(this)}>
 								<i className="iconfont icon-daifukuan x_big"></i>

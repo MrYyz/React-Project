@@ -29,8 +29,7 @@ switch ($action) {
 		// 删除
 		$sql = "DELETE address from address,`userlist` where address.uid = `userlist`.id and address.id = '${id}'";
 		$result = excute($sql);
-		// echo $sql;
-		// echo json_encode([], JSON_UNESCAPED_UNICODE);
+		
 		$sql1 = "select * from userlist as u inner join address as a on u.id = a.uid where u.username = '${username}'";
 		$res = query($sql1);
 		// echo $sql;

@@ -3,13 +3,11 @@
     function connect_oop(){
         // 配置参数
         $servername = '10.3.135.52';
+
         $username = 'zhiwei';
         $password = '123';
         $database = 'itemthree';
-        // $servername = 'localhost';
-        // $username = 'root';
-        // $password = '';
-        // $database = 'banggou';
+
 
         //连接数据库
         $conn = new mysqli($servername,$username,$password,$database);
@@ -44,10 +42,7 @@
         $username = 'zhiwei';
         $password = '123';
         $database = 'itemthree';
-        // $servername = 'localhost';
-        // $username = 'root';
-        // $password = '';
-        // $database = 'banggou';
+
 
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
         $con = mysqli_connect($servername,$username,$password,$database); 
