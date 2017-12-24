@@ -1,8 +1,12 @@
 //http://visionmedia.github.io/superagent/
 import request from 'superagent'
 
+<<<<<<< HEAD
 const LOCAL_SERVER = 'http://localhost:1994/';
 
+=======
+const LOCAL_SERVER = 'http://localhost:8080/react/';
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
 
 const DEV_SERVER = '';
 const PRO_SERVER = '';

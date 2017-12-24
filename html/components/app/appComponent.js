@@ -1,4 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
+=======
+// import './app.scss'
+
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
 
 import { hashHistory } from 'react-router'
 import '../../libs/icon/iconfont.css'

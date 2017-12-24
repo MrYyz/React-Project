@@ -4,7 +4,26 @@ import {Router, Route, hashHistory} from 'react-router'
 import AppComponent from '../components/app/appComponent'
 
 import ProductsComponent from '../components/products/productsComponent'
+import IndexComponent from '../components/index/indexComponent'
+import Indexregist from '../components/indexregist/indexregist'
+import LoginComponent from '../components/login/loginComponent.js'
+import RegisterComponent from '../components/register/registerComponent.js'
 
+import '../libs/base.css'
+
+// my
+import MyComponent from '../components/x_myComponent/x_my/x_my.js'
+import CollectComponent from '../components/x_myComponent/components/x_collect/x_collect.js'
+import SayComponent from '../components/x_myComponent/components/x_say/x_say.js'
+import OrderComponent from '../components/x_myComponent/components/x_order/x_order.js'
+import SetComponent from '../components/x_myComponent/components/x_set/x_set.js'
+import AddressComponent from '../components/x_myComponent/components/x_address/x_address.js'
+import HelpComponent from '../components/x_myComponent/components/x_help/x_help.js'
+import EdtComponent from '../components/x_myComponent/components/x_set/x_set_ed.js'
+import EdtAddress from '../components/x_myComponent/components/x_address/x_set_ed.js'
+import AddComponent from '../components/x_myComponent/components/x_address/x_address_add.js'
+
+<<<<<<< HEAD
 import CartComponent from '../components/cart_p/cartComponent'
 import CommentsComponent from '../components/comments_p/commentsComponent'
 import Order_pComponent from '../components/order_p/orderComponent'
@@ -35,6 +54,8 @@ import EdtComponent from '../components/x_myComponent/components/x_set/x_set_ed.
 import EdtAddress from '../components/x_myComponent/components/x_address/x_set_ed.js'
 import AddComponent from '../components/x_myComponent/components/x_address/x_address_add.js'
 
+=======
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
 export default class RootRouter extends React.Component{
     render(){
         return(
@@ -51,15 +72,21 @@ export default class RootRouter extends React.Component{
                     <Route path="edt" component={EdtComponent}></Route>
                     <Route path="edtAddress" component={EdtAddress}></Route>
                     <Route path="addAddress" component={AddComponent}></Route>
+<<<<<<< HEAD
                     <Route path="cart" component={CartComponent}></Route>
+=======
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
                 </Route>
                 <Route path="index" component={IndexComponent}></Route>
                 <Route path="regist" component={Indexregist}></Route>
                 <Route path="/login" component={LoginComponent}></Route>
                 <Route path="/register" component={RegisterComponent}></Route>
+<<<<<<< HEAD
                 <Route path="/commodity(/:guId)" component={CommodityComponet}></Route>
                 <Route path="/comments(/:guId)" component={CommentsComponent}></Route>
                 <Route path="/order_p(/:order_guid)" component={Order_pComponent}></Route>
+=======
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
             </Router>
         )
     }

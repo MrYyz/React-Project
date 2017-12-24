@@ -22,6 +22,7 @@ a:hover{
 	text-decoration:underline;}
 *{
 	box-sizing:border-box;}
+<<<<<<< HEAD
  /*清楚浮动*/
 .clearfix::after{
     content:"";
@@ -33,4 +34,7 @@ a:hover{
     /*兼容IE*/
     zoom: 1;
 }
+=======
+
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
 

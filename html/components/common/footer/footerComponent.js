@@ -44,6 +44,10 @@ export default class FooterComponent extends React.Component{
                     {
                         footer.map(function(item,idx){
                             return <li key={'footer'+idx} onClick={this.changeRouter} name={name[idx]}><i name={name[idx]} className={'iconfont '+ icon[idx]} key={'icon1'+idx}></i><p name={name[idx]} key={'icon2'+idx}>{item}</p></li>
+<<<<<<< HEAD
+=======
+
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
                         }.bind(this))
                     }
                 </ul>

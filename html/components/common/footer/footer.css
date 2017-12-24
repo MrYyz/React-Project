@@ -1,13 +1,20 @@
 .footer{
+<<<<<<< HEAD
+=======
+
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
     border-top:0.026667rem solid #ccc;
     width:100%;
     padding:0;
     margin:0;
     box-sizing:border-box;
+<<<<<<< HEAD
     background-color:#fff;
     /*position:absolute;
     bottom:0;
     left:0;*/
+=======
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
 }
 .footer ul, .footer li{
     margin: 0;
