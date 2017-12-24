@@ -3,9 +3,17 @@
     function connect_oop(){
         // 配置参数
         $servername = '10.3.135.52';
+<<<<<<< HEAD
         $username = 'linda';
         $password = '123456';
         $database = 'itemthree';
+=======
+
+        $username = 'zhiwei';
+        $password = '123';
+        $database = 'itemthree';
+
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
 
         //连接数据库
         $conn = new mysqli($servername,$username,$password,$database);
@@ -21,15 +29,10 @@
 
 
     function query_oop($sql){
-        $jsonData = array();
         $conn = connect_oop();
         $result = $conn->query($sql);
-        while ($row = $result->fetch_assoc()){
-            $jsonData[] = $row;
-        };
         $result->free();//释放内存
         $conn->close();//关闭连接
-        return $jsonData;
     }
 
     function excute_oop($sql){
@@ -37,34 +40,11 @@
         $result = $conn->query($sql);
         $conn->close();//关闭连接
         return $result;
-    }
-
-    function multi_query_oop($sql){
-        $jsonData = [];
-        $conn = connect_oop();
-        $flag = 0;
-        if ($conn->multi_query($sql)) {
-            do {
-                $rows = array();
-                if ($result = $conn->store_result()) {
-                    while ($row = $result->fetch_assoc()) {
-                        $rows[] = $row;
-                    }
-                    $result->free();
-                }
-                $flag++;
-                $data = ["data".$flag=>$rows];
-                $jsonData = array_merge($jsonData, $data);
-                
-            } while ($conn->more_results() && $conn->next_result());
-        }
-
-        $conn->close();//关闭连接
-        return $jsonData;
-    }
+    }    
 
     //初始化连接对象方法
     function connect(){
+<<<<<<< HEAD
         $servername = "10.3.135.52";//
         $username = "linda";
         $password = "123456";
@@ -72,6 +52,17 @@
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
         $con = mysqli_connect($servername,$username,$password,$dbname); 
         $con->set_charset('utf8');
+=======
+        $servername = '10.3.135.52';
+        $username = 'zhiwei';
+        $password = '123';
+        $database = 'itemthree';
+
+
+        //初始化连接，返回一个连接对象(包含所连接数据库的信息)
+        $con = mysqli_connect($servername,$username,$password,$database); 
+
+>>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
         //获取连接对象的错误信息
         if (mysqli_connect_error($con)) 
         { 
