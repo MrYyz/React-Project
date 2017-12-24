@@ -1,4 +1,4 @@
-import http from '../utils/httpClient'
+import http from '../utils/httpClient.js'
 
 export function ajaxMiddleware(api){
     return function(dispatch){
@@ -9,17 +9,17 @@ export function ajaxMiddleware(api){
             }
 
             api.dispatch({
-                type: 'beforeRequest'
+                type: types[0]
             })
             if(url){
-                http.get(url, params).then(res => {
+                http[method](url, params).then(res => {
                     api.dispatch({
-                        type: 'Requested',
+                        type: types[1],
                         response: res
                     })
                 }).catch(error => {
                     api.dispatch({
-                        type: 'requestError',
+                        type: types[2],
                         error
                     })
                 })

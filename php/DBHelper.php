@@ -2,10 +2,10 @@
 //http://www.runoob.com/php/php-mysql-select.html
     function connect_oop(){
         // 配置参数
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $database = 'vue_project';
+        $servername = '10.3.135.52';
+        $username = 'linda';
+        $password = '123456';
+        $database = 'itemthree';
 
         //连接数据库
         $conn = new mysqli($servername,$username,$password,$database);
@@ -65,19 +65,20 @@
 
     //初始化连接对象方法
     function connect(){
-        $servername = "localhost";//
-        $username = "root";
-        $password = "";
-        $dbname = 'vue_project'; 
+        $servername = "10.3.135.52";//
+        $username = "linda";
+        $password = "123456";
+        $dbname = 'itemthree'; 
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
         $con = mysqli_connect($servername,$username,$password,$dbname); 
-
+        $con->set_charset('utf8');
         //获取连接对象的错误信息
         if (mysqli_connect_error($con)) 
         { 
             echo "连接 MySQL 失败: " . mysqli_connect_error();
             return null;
         }
+        $con->set_charset('utf8');
         return $con;
     }
     
@@ -108,7 +109,8 @@
             mysqli_free_result($result);
         } 
         //关闭连接
-        mysqli_close($conn);   
+        mysqli_close($conn);
+
         return $jsonData;
     }
 
