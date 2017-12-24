@@ -4,25 +4,25 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #fff;
-    opacity: .2;
+    background-color: #ccc;
+    opacity: .5;
     z-index: 2090;
 }
 
 .dk-spinner-three-bounce.dk-spinner {
     position: absolute;
     top: 48%;
-    left: 38%;
+    left: 44%;
     background-color: none!important;
     z-index: 2099;
     margin: 0 auto;
-    width: 70px;
+    width: 120px;
     text-align: center;    
 }
 
 .dk-spinner-three-bounce div {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
     background-color: #1ab394;
     border-radius: 100%;
     display: inline-block;

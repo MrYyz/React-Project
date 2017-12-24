@@ -126,7 +126,7 @@ class CommodityComponent extends React.Component{
             let total = this.refs.comqty_p.innerHTML*this.props.dataset_p1[0].price;
             console.log(total);
             this.props.getComData('commodity_p.php',{guId:initparams,username:'carl',goodsQty:this.refs.comqty_p.innerHTML,order_guid:order_guid,order_status:'待付款',total:total,sort:'buy'},'get')
-            let path = '/order/' + order_guid;
+            let path = '/order_p/' + order_guid;
             hashHistory.push(path);
         }
     }

@@ -24,12 +24,15 @@
     height:1.333333rem;
     display:flex;
     flex-direction:column;
-    padding-top:0.133333rem;
+    padding-top:0.2rem;
 }
 .footer ul li i{
-    font-size:0.666667rem;
+    font-size:0.586667rem;
+    font-weight:bold;
 }
 .footer ul li p{
     margin:0;
+    padding:0.066667rem 0;
     font-size:0.346667rem;
 }
+.changeRed{color:red;}

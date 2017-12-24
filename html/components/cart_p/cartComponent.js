@@ -123,7 +123,7 @@ class CartComponent extends React.Component{
                 this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:'carl',goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:qty*price,sort:'order'},'get')
             }
         }
-        let path = '/order/' + order_guid;
+        let path = '/order_p/' + order_guid;
         hashHistory.push(path);
     }
     //跳转帮助

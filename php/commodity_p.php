@@ -3,7 +3,7 @@
     header('Access-Control-Allow-Origin:*');
     header('Access-Control-Allow-Methods:POST,GET,OPTIONS'); 
     header('Access-Control-Request-Headers:accept, content-type');
-    $guId = isset($_GET["guId"]) ? $_GET["guId"] : '';
+    $guId = isset($_GET["guId"]) ? $_GET["guId"] : '002';
     $sort = isset($_GET["sort"]) ? $_GET["sort"] : '';
     $username = isset($_GET["username"]) ? $_GET["username"] : '';
     $goodsQty = isset($_GET["goodsQty"]) ? $_GET["goodsQty"] : '';

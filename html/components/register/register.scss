@@ -1,0 +1,90 @@
+body{
+    margin:0;
+}
+#register{
+    width:100%;
+    height:15.0rem;
+    // background:url('../../libs/img/loginBackground.jpg')no-repeat;
+    background-size:100%;
+    background-color:#F7F7F7;
+    .registerHeader{
+        height:1.92rem;
+        h2{
+            margin:0;
+            overflow:hidden;
+            span{
+                float:left;
+                height:1.92rem;
+                line-height:1.92rem;
+                padding:0 0.533333rem;
+                font-size:0.666667rem;
+                color:#aaa;
+            }
+        }
+    }
+    .registerMain{
+        width:90%;
+        margin:0 auto;
+        .registerTitle{
+            margin:0;
+            width:96%;
+            margin-top:1.5rem;
+            margin-bottom:0.5rem;
+            padding-left:2%;   
+            span{
+                font-size:0.533333rem;
+                font-weight:normal;
+                padding:0 0.133333rem;
+                border-bottom:0.066667rem solid #D72152;
+            }
+        }
+        .registerNumber, .registerCode, .registerUsername, .registerPsw, .toRegister{
+            height:1.626667rem;
+            width:96%;
+            margin:0 auto;
+            border:0.013333rem solid #ccc;
+            border-radius:0.266667rem;
+            margin-bottom:0.266667rem;
+            input{
+                // height:1.6rem;
+                height:100%;
+                width:100%;
+                border:0 none;
+                background:transparent;
+                font-size:0.533333rem;
+                padding-left:0.266667rem;
+                outline:none;
+            }
+        }
+        .registerCode{
+            display:flex;
+            border:none;
+            i,span{
+                flex:1;
+                border-radius:0.266667rem;
+                border:0.013333rem solid #ccc; 
+            }
+            span{margin-left:0.266667rem;}
+        }
+        .toRegister{
+            background:#ccc;
+            input{
+                color:#fff;
+            }
+        }
+        .protocol{
+            margin:0 auto;
+            width:96%;
+            margin-bottom:0.6rem;
+            text-align:right;
+            span{font-size:0.48rem;}
+            a{
+                font-size:0.48rem;
+                color:#D72152;
+                text-decoration:none;
+            }
+        }
+        
+    }
+}
+

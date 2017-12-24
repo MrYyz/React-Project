@@ -1,0 +1,27 @@
+.regist-header{
+    display: flex;
+    height: .99839rem;
+    font-size: .402576rem;
+    font-weight: bold;
+    line-height: .99839rem;
+    span:first-child{
+        margin-left: .273752rem;
+        margin-right: 3.365539rem;
+        font-size: .644122rem;
+        color:#9B9B9B;
+    }
+}
+.regist-div1{
+    height: 5.716586rem;
+    display: flex;
+    div:first-child{
+        height: 2.028986rem;
+        width: 2.028986rem;
+        background: #E4E4E4;
+        border-radius: 50% 50%;
+        font-size: 1.497585rem;
+        color:white;
+        line-height: 2.028986rem;
+        text-align: center;
+    }
+}

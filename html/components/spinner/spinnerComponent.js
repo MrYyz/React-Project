@@ -5,7 +5,7 @@ export default class Spinner extends Component{
     render(){
         if(!this.props.show){
             return null
-        }        
+        }
         return (
             <div>
                 <div className="dk-spinner-mask"></div>
