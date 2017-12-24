@@ -48,8 +48,6 @@ class CommentsComponent extends React.Component{
 }
 
 const mapToState = function(store){
-    console.log(store)
-    console.log(store.Comments_p.response)
     return {
         dataset_Com1: store.Comments_p.response || [],
     }

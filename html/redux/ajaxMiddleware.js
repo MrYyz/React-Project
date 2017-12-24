@@ -15,13 +15,7 @@ export function ajaxMiddleware(api){
                 type: types[0]
             })
             if(url){
-<<<<<<< HEAD
                 http[method](url, params).then(res => {
-=======
-
-                http[method](url, params).then(res => {
-
->>>>>>> da09e3886d50c05dc0a816586d0d3efefd89eb36
                     api.dispatch({
                         type: types[1],
                         response: res,
