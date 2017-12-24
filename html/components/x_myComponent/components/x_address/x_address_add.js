@@ -11,7 +11,7 @@ class AddComponent extends React.Component {
 			<div className="x_set">
 				<div className="x_set_head">
 					
-				<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+				<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">{this.props.location.query.str}</p>
 					<span onClick={this.save.bind(this)}>保存</span>
 				</div>
@@ -48,6 +48,11 @@ class AddComponent extends React.Component {
 		// console.log(info);
 		this.props.getData('address.php',info);
 		hashHistory.push({pathname:'address'});
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 }
 

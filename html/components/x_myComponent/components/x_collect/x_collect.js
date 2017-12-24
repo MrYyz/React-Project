@@ -11,7 +11,7 @@ class CollectComponent extends React.Component {
 		return (
 			<div className="x_collect">
 				<div className="x_collect_head">
-					<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">我的收藏</p>
 				</div>
 				<div className="x_collect_options">
@@ -47,6 +47,11 @@ class CollectComponent extends React.Component {
 	componentDidMount(){
 		this.props.getData('collect.php',{username:'carl'});
 		console.log(this.props.dataset)
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 }
 

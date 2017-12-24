@@ -23,7 +23,7 @@ class OrderComponent extends React.Component {
 		return (
 			<div className="x_order">
 				<div className="x_order_head">
-					<Link to="/my"><i className="iconfont icon-arrowleft"></i></Link>
+					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">订单管理</p>
 				</div>
 				<div className="x_order_options" id="x_options">
@@ -83,6 +83,11 @@ class OrderComponent extends React.Component {
 	tab(idx){
 		return idx === this.state.index?"x_active":"";
 		// console.log(idx,cl);
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 }
 

@@ -11,7 +11,7 @@ class SetComponent extends React.Component {
 			<div className="x_set">
 				<div className="x_set_head">
 					
-				<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+				<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">个人资料</p>
 					
 					<span onClick={this.ed}>编辑</span>
@@ -53,6 +53,11 @@ class SetComponent extends React.Component {
 	}
 	componentDidMount(){
 		this.props.getData('person.php',{username:'123'});
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 }
 

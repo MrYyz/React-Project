@@ -11,7 +11,7 @@ class AddressComponent extends React.Component {
 		return (
 			<div className="x_address">
 				<div className="x_address_head">
-					<Link to="/my"><i className="iconfont icon-arrowleft"></i></Link>
+					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">地址管理</p>
 					<span onClick={this.add.bind(this)}>新增</span>
 				</div>
@@ -89,6 +89,11 @@ class AddressComponent extends React.Component {
 			pathname: 'addAddress',
 			query: {str: "添加收货地址"}
 		});
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 
 	// set_cl(idx){
