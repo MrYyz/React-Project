@@ -1,0 +1,121 @@
+.x_order {
+	display:flex;
+	flex-direction: column;
+	position: relative;
+	.x_order_head{
+		height:1.25333333rem; // 124px
+		display:flex;
+		i.icon-arrowleft{
+			position: absolute;
+			top:0;
+			left:0;
+			color:#555555;
+		}
+		i,p{
+			font-size:.7rem; // 72px
+			line-height:1.25333333rem; // 124px
+		}
+		.x_c_title{
+			font-size:.48rem;
+			margin-left:50%;
+			transform: translate(-50%,0);
+		}
+		border: .01333333rem solid #E5E5E5;
+	}
+
+	.x_order_options {
+			height:1rem; // 120px
+			display:flex;
+			justify-content:space-around;
+			align-items:center;
+			border: .01333333rem solid #E5E5E5;
+			text-align:center;
+			p{
+				font-size:.40666667rem; // 26px
+				width:4.33333333rem; // 100px
+				line-height:1rem; // 120px
+			}
+	}
+
+	.x_order_content {
+		flex:1;
+		padding-left: .45rem; // 30px
+
+		ul{
+			margin-top:.02666667rem; // 2px
+			li{
+				border-bottom:.02666667rem solid #E5E5E5;
+				padding-bottom:.4rem; // 30px
+				position: relative;
+			}
+		}
+
+		.x_order_goods_content{
+			display: flex;
+			.x_order_img{
+			//width:3.26666667rem; // 200px
+			height:2.66666667rem; // 200px
+		}
+		
+		.x_order_decoration{
+			padding-top: .26666667rem; // 20px
+			flex:1;
+			display:flex;
+			p{
+				//line-height:.53333333rem; // 40px
+				font-size:.34666667rem; // 26px
+			}
+			span{
+				line-height: .53333333rem; // 40px
+				font-size:.26666667rem; // 20px
+			}
+			p:nth-child(3){
+				font-size: .32333333rem; // 28px
+				text-align:right;
+			}
+			.x_o_d_left {
+				flex:4;
+			}
+
+			.x_o_d_right {
+				flex:1;
+				span,del{display:block;text-align:right;font-size:.30666667rem;}
+				padding-right:.2rem; // 30px
+			}
+			}
+		}
+		
+		.x_order_result {
+			text-align:right;
+			
+			padding-right:.13333333rem; // 10px
+			p{
+				line-height: .66666667rem; // 50px
+				font-size: .34666667rem; // 26px
+			}
+		}
+	}
+
+	.x_order_over {
+		height:.66666667rem; // 50px
+		font-size:.34666667rem; // 26px
+		text-align:center;
+		line-height:.66666667rem; // 50px
+	}
+
+	.x_order_state {
+		//position: absolute;
+		//right:.2rem;
+		//bottom:1.33333333rem; // 100px
+		font-size: .30666667rem;
+	}
+}
+
+.x_active {
+	color:#FE0E4D;
+	border-bottom:.02666667rem solid #FE0E4D;
+}
+
+.x_all_active {
+	color:#f60;
+}
