@@ -20,12 +20,15 @@ export default class Indexregist extends React.Component{
                     document.querySelector('.regist3').innerHTML=Number(document.querySelector('.regist3').innerHTML+1);
                     document.querySelector('.jifen1').innerHTML=Number(document.querySelector('.jifen1').innerHTML)+10;
                     document.querySelector('.jifen2').innerHTML=Number(document.querySelector('.jifen2').innerHTML)+10;
-                    
-            b        
             }
         render(){
             const arr=[0,0,0,0];
-            const imgArr=['url(http://10.3.135.243:1706/git_react/React-Project/html/libs/images/money1.jpg)','url(http://10.3.135.243:1706/git_react/React-Project/html/libs/images/money2.jpg)','url(http://10.3.135.243:1706/git_react/React-Project/html/libs/images/money3.jpg)','url(http://10.3.135.243:1706/git_react/React-Project/html/libs/images/money4.jpg)'];
+            const imgArr=[
+                'url(html/libs/images/money1.jpg)',
+                'url(/html/libs/images/money2.jpg)',
+                'url(/html/libs/images/money3.jpg)',
+                'url(/html/libs/images/money4.jpg)'
+            ];
                 return (<div>
                             <div className="iconfont">
                                 <div className="regist-header">

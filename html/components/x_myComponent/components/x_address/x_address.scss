@@ -27,9 +27,11 @@
 			padding: 0 .26666667rem; // 20px
 		}
 		border-bottom: .01333333rem solid #E5E5E5;
+		background-color: #fff;
 	}
 
 	.x_address_body {
+		background-color: #fff;
 		li {
 			margin-bottom: .26666667rem; // 20px
 			border-bottom: .01333333rem solid #e5e5e5;
@@ -54,6 +56,7 @@
 			display:flex;
 			justify-content: space-between;
 			height: 1rem;
+			border-top: .01333333rem dashed #EEEEEE;
 			align-items: center;
 			padding: 0 .26666667rem; // 20px
 			div{

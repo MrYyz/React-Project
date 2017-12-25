@@ -27,7 +27,7 @@ class Mycompoent extends React.Component {
 					<div className="x_myPic">
 						<div>
 							<i className="iconfont icon-home"></i>
-							<p>一个个</p>
+							<p onClick={this.push_login.bind(this)}>{window.localStorage.username || "请登录"}</p>
 						</div>
 					</div>
 					<div className="x_qiandao">
@@ -95,7 +95,7 @@ class Mycompoent extends React.Component {
 						<li>
 							<Link to="address">
 								<div>
-									<i className="iconfont icon-dizhi" style={{color: '#E0427C'}}></i>
+									<i className="iconfont icon-dizhi" style={{color: '#fff',backgroundColor:'#FE0E4D'}}></i>
 									<span>地址管理</span>
 								</div>
 							</Link>
@@ -105,7 +105,7 @@ class Mycompoent extends React.Component {
 						</li>
 						<li>
 							<div>
-								<i className="iconfont icon-kefu" style={{color: '#B351E6'}}></i>
+								<i className="iconfont icon-kefu" style={{color: '#fff',backgroundColor:'#B351E6'}}></i>
 								<span>联系客服</span>
 							</div>
 							<div>
@@ -114,7 +114,7 @@ class Mycompoent extends React.Component {
 						</li>
 						<li>
 							<div>
-								<i className="iconfont icon-bangzhu" style={{color: '#F7BD38'}}></i>
+								<i className="iconfont icon-bangzhu" style={{color: '#fff',backgroundColor:'#F7BD38'}}></i>
 								<span>订阅</span>
 							</div>
 							<div>
@@ -123,7 +123,7 @@ class Mycompoent extends React.Component {
 						</li>
 						<li>
 							<div>
-								<i className="iconfont icon-pinglun" style={{color: '#56ABE4'}}></i>
+								<i className="iconfont icon-pinglun" style={{color: '#fff',backgroundColor:'#56ABE4'}}></i>
 								<span>爆料</span>
 							</div>
 							<div>
@@ -132,7 +132,7 @@ class Mycompoent extends React.Component {
 						</li>
 						<li>
 							<div>
-								<i className="iconfont icon-icon"></i>
+								<i className="iconfont icon-icon" style={{color: '#fff',backgroundColor:'#32CEAA'}}></i>
 								<span onClick={this.push_help}>帮助和说明</span>
 							</div>
 							<div>
@@ -146,7 +146,7 @@ class Mycompoent extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getData('lv.php',{username:'carl'});
+		this.props.getData('lv.php',{username: localStorage.username});
 	}
 
 	// 
@@ -180,7 +180,7 @@ class Mycompoent extends React.Component {
 	push_address(){
 		hashHistory.push({
 			pathname: 'address',
-			query: {username: '007'}
+			query: {username: localStorage.username}
 		})
 	}
 
@@ -192,10 +192,17 @@ class Mycompoent extends React.Component {
 			pathname: 'help',
 		})
 	}
+
+	// 如没登陆
+	push_login(){
+		hashHistory.push({
+			pathname: 'login',
+		})
+	}
 }
 
 const mapToState = function(state){
-	// console.log(state);
+	console.log(state);
 	return {
 		dataset: state.order.response || []
 	}

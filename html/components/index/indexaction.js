@@ -117,7 +117,7 @@ function indextui(arr){
                                 <ul className="bannerul" style={_style}>
                                         {
                                             nav.map(function(item,idx){
-                                                    return <li className={'banner'+idx} key={'banner'+idx} style={{width:window.innerWidth+'px',backgroundImage:'url(http://10.3.135.243:1706/git_react/React-Project/html/libs/images/banner'+(idx+1)+'.jpg)',backgroundSize:'cover'}}></li>
+                                                    return <li className={'banner'+idx} key={'banner'+idx} style={{width:window.innerWidth+'px',backgroundImage:'url(html/libs/images/banner'+(idx+1)+'.jpg)',backgroundSize:'cover'}}></li>
                                             })
                                         }
                                 </ul>

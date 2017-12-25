@@ -6,12 +6,11 @@ import './comments.scss';
 
 class CommentsComponent extends React.Component{
     componentDidMount(){
-        console.log(this.props.params.guId);
         this.props.getCommentsData('comments_p.php',{guId:this.props.params.guId},'get')
     }
     publish(event){
         let val = event.target.parentElement.previousElementSibling.children[0].value;
-        this.props.getCommentsData('comments_p.php',{guId:this.props.params.guId,username:'carl',Comment:val,sort:'publish'},'get')
+        this.props.getCommentsData('comments_p.php',{guId:this.props.params.guId,username:window.localStorage.username,Comment:val,sort:'publish'},'get')
     }
     //返回键
     backtrack(){

@@ -1,8 +1,7 @@
 //http://visionmedia.github.io/superagent/
 import request from 'superagent'
 
-const LOCAL_SERVER = 'http://localhost:1706/git_react/React-Project/php/';
-
+const LOCAL_SERVER = 'http://localhost:8080/react/';
 
 const DEV_SERVER = '';
 const PRO_SERVER = '';

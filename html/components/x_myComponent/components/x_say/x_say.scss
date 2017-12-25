@@ -2,8 +2,8 @@
 	display:flex;
 	flex-direction: column;
 	.x_say_head{
+		background-color: #fff;
 		height:1.25333333rem; // 124px
-		display:flex;
 		i.icon-arrowleft{
 			position: absolute;
 			top:0;
@@ -18,11 +18,14 @@
 			font-size:.48rem;
 			margin-left:50%;
 			transform: translate(-50%,0);
+			text-align: center;
 		}
 		border: .01333333rem solid #E5E5E5;
+		background-color: #fff;
 	}
 
 	.x_say_options {
+			background-color: #fff;
 			height:1rem; // 120px
 			display:flex;
 			justify-content:space-around;
@@ -41,7 +44,8 @@
 	}
 
 	.x_say_content {
-		
+		overflow-x: hidden;
+		background-color: #fff;
 		padding-left: .45rem; // 30px
 		ul{
 			margin-top:.10333333rem; // 4px

@@ -64,7 +64,8 @@ let theLists='xx',indexmain;
                     thediv.style.display='none';
                     thediv1.style.display='block'; 
                     
-                     theLists=window.handbag(thearr);
+                     // theLists=window.handbag(thearr);
+                     theLists=this.props.handbag(thearr);
                     
                      this.setState({lists:theLists});
                 }else if(e.target.innerHTML=='斜挎包'){
@@ -78,7 +79,8 @@ let theLists='xx',indexmain;
                     thediv.style.display='none';
                     thediv1.style.display='block'; 
                     
-                     theLists=window.handbag(thearr);
+                     // theLists=window.handbag(thearr);
+                     theLists=this.props.handbag(thearr);
                     
                      this.setState({lists:theLists});
                 }else if(e.target.innerHTML=='单肩包'){
@@ -92,7 +94,8 @@ let theLists='xx',indexmain;
                     thediv.style.display='none';
                     thediv1.style.display='block'; 
                     
-                     theLists=window.handbag(thearr);
+                     // theLists=window.handbag(thearr);
+                     theLists=this.props.handbag(thearr);
                     
                      this.setState({lists:theLists});
                 }
@@ -100,33 +103,30 @@ let theLists='xx',indexmain;
         }
     }
 
+
     theparams(e){
         if(e.target.parentNode.className=='indexlist'){
            var id=e.target.parentNode.id;
            hashHistory.push('/commodity/'+id);
         }
      }
+
+    toMsgComponent(){
+         hashHistory.push('message');
+    }
+
     render(){
-       
         const nav=['li1','li2','li3','li4'];
         const li_inner=['推荐','手提包','斜挎包','单肩包'];
         let _style={width: window.innerWidth*nav.length+'px'}
-        // console.log(this.state.lists,'---df--asdf-d-f--f-');
-      
-
             if(this.props.components){
-                   
-                  theLists=this.therecommed();
+                theLists=this.therecommed();
                 window.aa=theLists;
             }   
             if(window.aa){
-             
                 theLists=window.aa;
             }
-               
-          
         return (
-
             <div id="container" style={{height : window.innerHeight+'px'}}>
                 <div className="indexheader">
                     <div className="li_imfor iconfont" ref="xx">
@@ -134,7 +134,7 @@ let theLists='xx',indexmain;
                         <span className="icon-wxbsousuotuiguang"></span>
                         <span><input type="text" placeholder="搜一搜全球好货"/></span>
                      </p>
-                            <span className="icon-tips"></span>
+                            <span className="icon-tips" onClick={this.toMsgComponent}></span>
                      </div>
                         <ul className="li_nav" ref="li_nav" onClick={this.thechange.bind(this)}>
                              {nav.map(function(item,idx){
@@ -142,7 +142,6 @@ let theLists='xx',indexmain;
                               })}    
                         </ul>
                      </div>
-                  
                 <div className="indexmain">
                      <div className="spinner">
                               <Spinner></Spinner>
@@ -150,29 +149,22 @@ let theLists='xx',indexmain;
                      <div className="theindex"  onClick={this.theparams}>{theLists}</div>
                      <div className="indexmain1" onClick={this.theparams}>{this.state.lists}</div>
                 </div>
-               
                <div className="indexfooter"></div>
             </div>
         )
     }
-
     componentDidUpdate(){
-  
-  
-
         if(this.props.components){
             theul=document.querySelector('.bannerul');
             theWidth=window.innerWidth;
-            window.handbag=this.props.handbag;
-            document.querySelector('.spinner').style.display='none';
-                
-            this.props.banner(theWidth,theul);
-   
-       
-        }
-                
-    }
 
+            window.handbag=this.props.handbag;
+
+
+            document.querySelector('.spinner').style.display='none';
+            this.props.banner(theWidth,theul);
+        }
+    }
             componentDidMount(){
                 
                  theWidth=window.innerWidth;
@@ -185,7 +177,6 @@ let theLists='xx',indexmain;
 }
   
    const mapToState=function(state){
-        
        return {
             thedata : JSON.stringify(state.indexReducer.res),
             status: state.indexReducer.status,

@@ -4,6 +4,7 @@ import { Carousel , WhiteSpace, WingBlank} from 'antd-mobile';
 import {Router, Route, hashHistory,Link} from 'react-router'
 import * as CommodityAction from './commodityAction'
 import './commodity.scss';
+import Spinner_p from '../spinner/spinnerComponent1.js'
 
 class CommodityComponent extends React.Component{
     state = {
@@ -11,25 +12,27 @@ class CommodityComponent extends React.Component{
         degree:0,//小弹窗的类型：收藏或点赞
         shopQty:0,//购物车的数量
         status_p: '',
+        show:false,
     }
     //轮播图
     componentDidMount() {
         // let initparams = this.props.location.query.guId
-        let initparams = this.props.params.guId
-        this.props.getComData('commodity_p.php',{guId:initparams,username:'carl'},'get')
+        let initparams = this.props.params.guId;//接受传来的id
+        if(window.localStorage.username){
+            this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username},'get')
+        }else{
+            this.props.getComData('commodity_p.php',{guId:initparams},'get')
+        }
         // simulate img loading
         setTimeout(() => {
           this.setState({
-            data: ['b', 'i', 'p'],
+            data: ['good2', 'good3', 'good14','good13','good21'],
           });
           //显示购物车的数量
           this.shopqty(this.props.dataset_p5);
-          //收藏图标是否高亮
-          if(this.props.dataset_p6.length>0){
-            this.refs.collect.children[0].children[0].classList.add('col_active');
-          }
         }, 100);
     }
+
     //点赞
     zan(){
         this.refs.upwin.classList.add('upwin_active');
@@ -53,14 +56,14 @@ class CommodityComponent extends React.Component{
             this.refs.collect.children[1].innerHTML = '已收藏';
             let time = this.state.degree + 1;
             this.setState({degree: time});
-            this.props.getComData('commodity_p.php',{guId:this.props.params.guId,username:'carl',sort:'collect'},'get')
+            this.props.getComData('commodity_p.php',{guId:this.props.params.guId,username:window.localStorage.username,sort:'collect'},'get')
         }else{
             icon.classList.remove('col_active');
             this.refs.upwin.classList.add('upwin_active');
             this.refs.upwin.innerHTML = '取消收藏';
             this.refs.collect.children[1].innerHTML = '收藏';
             this.setState({degree: 0})
-            this.props.getComData('commodity_p.php',{guId:this.props.params.guId,username:'carl',sort:'nocollect'},'get')
+            this.props.getComData('commodity_p.php',{guId:this.props.params.guId,username:window.localStorage.username,sort:'nocollect'},'get')
         }
         setTimeout(()=>{
             this.refs.upwin.classList.remove('upwin_active');
@@ -99,6 +102,7 @@ class CommodityComponent extends React.Component{
     cancel_p(){
         this.refs.tanc.classList.remove('tanc_ative');
     }
+    //购物车数量
     shopqty(data){
         let shopqty = 0;
         for(let i=0;i<data.length;i++){
@@ -108,11 +112,10 @@ class CommodityComponent extends React.Component{
     }
     //确认按钮
     verify_p(){
-        console.log(this.refs.comqty_p.innerHTML)
         let initparams = this.props.params.guId;
         if(this.state.status_p == 'join_p'){
             //确认加入购物车
-            this.props.getComData('commodity_p.php',{guId:initparams,username:'carl',goodsQty:this.refs.comqty_p.innerHTML,sort:'join'},'get');
+            this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username,goodsQty:this.refs.comqty_p.innerHTML,sort:'join'},'get');
             this.refs.tanc.classList.remove('tanc_ative');
             this.refs.upwin.classList.add('upwin_active');
             this.refs.upwin.innerHTML = '已加入购物车';
@@ -123,9 +126,8 @@ class CommodityComponent extends React.Component{
         }else if(this.state.status_p == 'buy_p'){
             //确认购买并跳转到订单页面
             let order_guid = 'g' + Date.now();
-            let total = this.refs.comqty_p.innerHTML*this.props.dataset_p1[0].price;
-            console.log(total);
-            this.props.getComData('commodity_p.php',{guId:initparams,username:'carl',goodsQty:this.refs.comqty_p.innerHTML,order_guid:order_guid,order_status:'待付款',total:total,sort:'buy'},'get')
+            let total = (this.refs.comqty_p.innerHTML*this.props.dataset_p1[0].price).toFixed(2);
+            this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username,goodsQty:this.refs.comqty_p.innerHTML,order_guid:order_guid,order_status:'待付款',total:total,sort:'buy'},'get')
             let path = '/order_p/' + order_guid;
             hashHistory.push(path);
         }
@@ -136,8 +138,8 @@ class CommodityComponent extends React.Component{
         let path = '/commodity/' + eleLi.dataset.id;
         if(eleLi.tagName.toLowerCase() == 'li'){
             hashHistory.push(path);
-            // this.props.getComData('commodity_p.php',{guId:eleLi.dataset.id,username:'carl'},'get')
-            location.reload();
+            this.props.getComData('commodity_p.php',{guId:eleLi.dataset.id,username:window.localStorage.username},'get')
+            // location.reload();
         }
     }
     //跳转评论
@@ -151,6 +153,20 @@ class CommodityComponent extends React.Component{
     }
     index_p(){
         hashHistory.push('/');
+    }
+    //loading层
+    componentWillUpdate(nextProps, nextState){
+        if(nextProps.loadStatus == 0){
+            nextState.show = true;
+        }else if(nextProps.loadStatus == 1){
+            nextState.show = false;
+        }
+        //收藏图标是否高亮
+        if(nextProps.dataset_p6.length>0){
+            this.refs.collect.children[0].children[0].classList.add('col_active');
+        }else{
+            this.refs.collect.children[0].children[0].classList.remove('col_active');
+        }
     }
     render(){
         return (
@@ -174,7 +190,7 @@ class CommodityComponent extends React.Component{
                               {this.state.data.map(ii => (
                                   <img  
                                     key={ii}                          
-                                    src={`./html/imgs/${ii}.jpg`}
+                                    src={`./html/img/${ii}.jpg`}
                                     alt=""
                                     style={{ height:'5.333333rem',width:'8.0rem',verticalAlign: 'top' }}
                                     onLoad={() => {
@@ -187,7 +203,7 @@ class CommodityComponent extends React.Component{
                         </WingBlank>
                     </div>
                     <div>
-                        <div className="datalists">
+                        <div className="datalists_p">
                             {
                                 this.props.dataset_p1.map(function(obj,indx){
                                     return <div key={obj.guId}><p>{obj.name}</p><div className="price">￥<span>{obj.price}</span></div><div className="brand"><span>{obj.brand}</span> 供货</div></div>
@@ -240,7 +256,7 @@ class CommodityComponent extends React.Component{
                                 
                                 this.props.dataset_p4.map(function(item,idx){
                                     if(item.guId != this.props.params.guId){
-                                        return<li key={item.guId} data-id={item.guId} onClick={this.skipCom.bind(this)}><div><img src="/html/imgs/b.jpg" /></div><div><p>{item.name}</p></div><div><p>￥ {item.price}</p></div></li>
+                                        return<li key={item.guId} data-id={item.guId} onClick={this.skipCom.bind(this)}><div><img src={item.imgUrl} /></div><div><p>{item.name}</p></div><div><p>￥ {item.price}</p></div></li>
                                     }
                                 }.bind(this))
 
@@ -299,12 +315,15 @@ class CommodityComponent extends React.Component{
                         </div>
                     </div>
                 </div>
+                <Spinner_p show={this.state.show}/>
             </div>
         )
     }
 }
 const mapToState = function(store){
+    console.log(store)
     return {
+        loadStatus: store.Commodity_p.status,
         dataset_p1: store.Commodity_p.data1 || [],
         dataset_p2: store.Commodity_p.data2 || [],
         dataset_p3: store.Commodity_p.data3 || [],

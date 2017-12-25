@@ -12,7 +12,7 @@ class EdtComponent extends React.Component {
 			<div className="x_set">
 				<div className="x_set_head">
 					
-				<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+				<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">{this.props.location.query.str}</p>
 					<Link to="address"><span onClick={this.update.bind(this)}>保存</span></Link>
 					
@@ -60,6 +60,11 @@ class EdtComponent extends React.Component {
 			action: 'update'
 		}
 		this.props.getData('address.php',info);
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 }
 

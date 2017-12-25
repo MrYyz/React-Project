@@ -6,20 +6,42 @@
     
     include 'DBHelper.php';
 
-    $phone = isset($_POST["phone"]) ? $_POST["phone"] : 'admin';
+    $phone = isset($_POST["phone"]) ? $_POST["phone"] : 'admin3';
     // $code = isset($_POST["code"]) ? $_POST["code"] : 'admin';
-    $username = isset($_POST["username"]) ? $_POST["username"] : 'admin';
-    $password = isset($_POST["password"]) ? $_POST["password"] : 'admin';
+    $username = isset($_POST["username"]) ? $_POST["username"] : 'admin3';//昵称
+    $password = isset($_POST["password"]) ? $_POST["password"] : 'admin3';
 
-    $sql = "insert into userlist(`phone`,`username`,`password`) values('$phone','$username','$password')";
-    
-    $result = excute($sql);
-
-    if($result){
-        $res = ("type" => 'ok');
+    $sql1 = "select * from userlist where phone = '$phone'";
+    $result1 = query($sql1);
+    if($result1){
+        class Obj{
+            var $phone_exist = '1';
+        }
+        $o = new Obj();
+        $arr = array($o);
     }else{
-        $res = ("type" => 'no');
+        $sql2 = "select * from userlist where username = '$username'";
+        $result2 = query($sql2);
+        if($result2){
+            class Obj{
+                var $username_exist = '1';
+            }
+            $o = new Obj();
+            $arr = array($o);
+        }else{
+            $sql3 = "insert into userlist (`username`,`phone`,`password`) value ('${username}','${phone}','${password}')";
+            $result3 = excute($sql3);
+            class Obj{
+                var $insert_success = '1';
+                function __construct($phone,$username){
+                    $this->phone = $phone;
+                    $this->username = $username;
+                }
+            }
+            $o = new Obj($phone,$username);
+            $arr = array($o);
+        }
     }
-    var_dump($res);
-    // echo json_encode($result,JSON_UNESCAPED_UNICODE);
+
+    echo json_encode($arr,JSON_UNESCAPED_UNICODE);
 ?>

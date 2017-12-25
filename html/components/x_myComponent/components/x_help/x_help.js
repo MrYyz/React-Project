@@ -8,7 +8,7 @@ class HelpComponent extends React.Component {
 		return (
 			<div className="x_help">
 				<div className="x_help_head">
-					<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">帮助和说明</p>
 				</div>
 				<div className="x_help_body">
@@ -37,6 +37,11 @@ class HelpComponent extends React.Component {
 				</div>
 			</div>
 		)
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
 	}
 }
 

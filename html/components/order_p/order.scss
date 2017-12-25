@@ -23,6 +23,15 @@ html,body{
             left:0.213333rem;//16px
             font-size:0.693333rem;//52px
         }
+        span:nth-child(2){
+            float:right;
+            font-size:0.426667rem;
+            line-height:0.426667rem;
+            padding:0.266667rem;
+            margin-top:0.4rem;
+            border:0.013333rem solid #FF8000;
+            border-radius:0.266667rem;
+        }
     }
     .main{
         flex:1;

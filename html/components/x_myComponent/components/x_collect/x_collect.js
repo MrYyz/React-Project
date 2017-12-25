@@ -11,7 +11,7 @@ class CollectComponent extends React.Component {
 		return (
 			<div className="x_collect">
 				<div className="x_collect_head">
-					<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">我的收藏</p>
 				</div>
 				<div className="x_collect_options">
@@ -22,7 +22,7 @@ class CollectComponent extends React.Component {
 					<ul>
 						{
 							this.props.dataset.map(function(obj,index){
-								return 	<li key={1+index}>
+								return 	<li key={1+index} onClick={this.push_detail.bind(this)} data-id={obj.guId}>
 											<div className="x_collect_img">
 												<img src="./case.png" />
 											</div>
@@ -45,13 +45,27 @@ class CollectComponent extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getData('collect.php',{username:'carl'});
+		this.props.getData('collect.php',{username: localStorage.username});
 		console.log(this.props.dataset)
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
+	}
+
+	// 跳转到详情页
+	push_detail(event){
+		let gid = event.target.parentElement.parentElement.dataset.id;
+		if(gid){
+			let path = '/commodity/' + gid;
+			hashHistory.push(path);
+		}
 	}
 }
 
 const mapToState = function(state){
-	// console.log(state);
+	console.log(state);
 	return {
 		dataset: state.collect.response || [] // 
 	}

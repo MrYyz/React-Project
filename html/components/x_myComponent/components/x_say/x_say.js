@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router'
+import {Link,hashHistory} from 'react-router'
 
 import './x_say.scss'
 
@@ -11,7 +11,7 @@ class SayComponent extends React.Component {
 		return (
 			<div className="x_say">
 				<div className="x_say_head">
-					<Link to="my"><i className="iconfont icon-arrowleft"></i></Link>
+					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
 					<p className="x_c_title">我的评论</p>
 				</div>
 				<div className="x_say_options">
@@ -22,7 +22,7 @@ class SayComponent extends React.Component {
 					<ul>
 						{
 							this.props.dataset.map(function(obj,idx){
-								return <li key={'1'+idx} data-id={obj.guid}>
+								return <li key={'1'+idx} data-id={obj.guid} onClick={this.push_detail.bind(this)}>
 									<div className="x_say_user"><div>
 										<i className="iconfont icon-home"></i></div><span>{obj.username}</span>
 										<p className="">"{obj.Comment}"</p>
@@ -34,7 +34,7 @@ class SayComponent extends React.Component {
 									<p className="ellText">{obj.details}</p>
 								</div>
 								</li>
-							})
+							}.bind(this))
 						}
 					</ul>
 				</div>
@@ -47,11 +47,25 @@ class SayComponent extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getData('say.php',{username:'jack'});
+		this.props.getData('say.php',{username:localStorage.username});
 	}
 
 	change(event){
-		this.props.getData('say.php',{username:'jack'});
+		this.props.getData('say.php',{username:localStorage.username});
+	}
+
+	// 返回上一级
+	back(){
+		this.props.router.goBack();
+	}
+
+	// 跳转详情
+	push_detail(event){
+		let gid = event.target.parentElement.parentElement.dataset.id;
+		if(gid){
+			let path = '/commodity/' + gid;
+			hashHistory.push(path);
+		}
 	}
 }
 
