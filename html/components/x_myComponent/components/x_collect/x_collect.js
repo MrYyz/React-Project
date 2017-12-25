@@ -22,7 +22,7 @@ class CollectComponent extends React.Component {
 					<ul>
 						{
 							this.props.dataset.map(function(obj,index){
-								return 	<li key={1+index}>
+								return 	<li key={1+index} onClick={this.push_detail.bind(this)} data-id={obj.guId}>
 											<div className="x_collect_img">
 												<img src="./case.png" />
 											</div>
@@ -53,10 +53,19 @@ class CollectComponent extends React.Component {
 	back(){
 		this.props.router.goBack();
 	}
+
+	// 跳转到详情页
+	push_detail(event){
+		let gid = event.target.parentElement.parentElement.dataset.id;
+		if(gid){
+			let path = '/commodity/' + gid;
+			hashHistory.push(path);
+		}
+	}
 }
 
 const mapToState = function(state){
-	// console.log(state);
+	console.log(state);
 	return {
 		dataset: state.collect.response || [] // 
 	}

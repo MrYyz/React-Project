@@ -2,6 +2,7 @@
 	display:flex;
 	flex-direction: column;
 	.x_say_head{
+		background-color: #fff;
 		height:1.25333333rem; // 124px
 		display:flex;
 		i.icon-arrowleft{
@@ -24,6 +25,7 @@
 	}
 
 	.x_say_options {
+			background-color: #fff;
 			height:1rem; // 120px
 			display:flex;
 			justify-content:space-around;
@@ -42,7 +44,7 @@
 	}
 
 	.x_say_content {
-		
+		background-color: #fff;
 		padding-left: .45rem; // 30px
 		ul{
 			margin-top:.10333333rem; // 4px

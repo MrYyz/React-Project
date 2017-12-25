@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router'
+import {Link,hashHistory} from 'react-router'
 
 import './x_say.scss'
 
@@ -22,7 +22,7 @@ class SayComponent extends React.Component {
 					<ul>
 						{
 							this.props.dataset.map(function(obj,idx){
-								return <li key={'1'+idx} data-id={obj.guid}>
+								return <li key={'1'+idx} data-id={obj.guid} onClick={this.push_detail.bind(this)}>
 									<div className="x_say_user"><div>
 										<i className="iconfont icon-home"></i></div><span>{obj.username}</span>
 										<p className="">"{obj.Comment}"</p>
@@ -34,7 +34,7 @@ class SayComponent extends React.Component {
 									<p className="ellText">{obj.details}</p>
 								</div>
 								</li>
-							})
+							}.bind(this))
 						}
 					</ul>
 				</div>
@@ -57,6 +57,15 @@ class SayComponent extends React.Component {
 	// 返回上一级
 	back(){
 		this.props.router.goBack();
+	}
+
+	// 跳转详情
+	push_detail(event){
+		let gid = event.target.parentElement.parentElement.dataset.id;
+		if(gid){
+			let path = '/commodity/' + gid;
+			hashHistory.push(path);
+		}
 	}
 }
 

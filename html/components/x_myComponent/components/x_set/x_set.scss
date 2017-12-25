@@ -42,6 +42,7 @@
 		span {
 			font-size: .34666667rem; // 26px
 		}
+		background-color: #fff;
 	}
 
 	.x_set_footer {
@@ -51,6 +52,7 @@
 			text-align:center;
 			line-height:1rem;
 		}
+		background-color: #fff;
 	}
 	input {
 		height: .7rem; // 30px
@@ -58,5 +60,8 @@
 		width: 5rem; // 300px
 		//width: 4em; // 300px
 		font-size:.34666667rem; // 26px
+		padding-left: .13333333rem; // 10px
+		border: none;
+		border-bottom: .01333333rem solid #c1c1c1; 
 	}
 }
