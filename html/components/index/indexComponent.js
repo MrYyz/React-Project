@@ -100,7 +100,12 @@ let theLists='xx',indexmain;
         }
     }
 
-
+    theparams(e){
+        if(e.target.parentNode.className=='indexlist'){
+           var id=e.target.parentNode.id;
+           hashHistory.push('/commodity/'+id);
+        }
+     }
     render(){
        
         const nav=['li1','li2','li3','li4'];
@@ -142,8 +147,8 @@ let theLists='xx',indexmain;
                      <div className="spinner">
                               <Spinner></Spinner>
                         </div>
-                     <div className="theindex">{theLists}</div>
-                     <div className="indexmain1">{this.state.lists}</div>
+                     <div className="theindex"  onClick={this.theparams}>{theLists}</div>
+                     <div className="indexmain1" onClick={this.theparams}>{this.state.lists}</div>
                 </div>
                
                <div className="indexfooter"></div>
@@ -158,7 +163,7 @@ let theLists='xx',indexmain;
         if(this.props.components){
             theul=document.querySelector('.bannerul');
             theWidth=window.innerWidth;
-       
+            window.handbag=this.props.handbag;
             document.querySelector('.spinner').style.display='none';
                 
             this.props.banner(theWidth,theul);

@@ -1,0 +1,58 @@
+html,body{
+    height: 100%;
+}
+.indexheader1{
+    height: 1.167472rem;
+    border: 0 none;
+    .li_imfor{
+        margin-top: .177134rem;
+        display: flex;
+        justify-content: space-around;
+        p{
+            height: .724638rem;
+            background: #EFEEF3;
+            display: flex;
+            width: 7.246377rem;
+            border-radius: .161031rem;
+            margin-left: .241546rem;
+            padding-left: .080515rem;
+        span{
+            font-size: .499195rem;
+            line-height: .724638rem;
+            height: 100%;
+            color:#CCCCCC;  
+        }
+        span:last-child{
+
+            margin-left: .273752rem;
+            input{
+                font-size: .338164rem;
+                color:#8D8D8D;
+                display: block;
+                box-sizing: border-box;
+                background: #EFEEF3;
+                border: 0 none;
+                height: 100%;
+                width: 100%;
+
+            }
+        }
+    }
+    span.icon-tips{
+      
+        height: .724638rem;
+        line-height:.724638rem;       
+        font-size: .75rem;
+    }
+    }
+}
+.thepagediv{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    
+}
+.pageMain{
+    flex: 1;
+    overflow: auto;
+}

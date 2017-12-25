@@ -8,6 +8,7 @@ import LoginReducer from '../components/login/loginReducer.js'
 import RegisterReducer from '../components/register/registerReducer.js'
 import indexReducer from '../components/index/indexReducer.js'
 import zhekouReducer from '../components/zhekou/zhekouReducer.js'
+import thepagelist from '../components/thepagelistComponent/thepageReducer.js'
 
 
 import order from '../components/x_myComponent/components/x_order/x_order_reducer.js'
@@ -26,6 +27,8 @@ export default combineReducers({
     Cart_p,
     Commodity_p,
     Comments_p,
-    Order_p,indexReducer,zhekouReducer
+    Order_p,indexReducer,
+    zhekouReducer,
+    thepagelist 
 
 })

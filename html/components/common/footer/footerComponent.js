@@ -22,7 +22,7 @@ export default class FooterComponent extends React.Component{
                 break;
             case 'toType':
                 arr[0].className = 'changeRed';
-                hashHistory.push('type');
+                hashHistory.push('classify');
                 break;
             case 'toCart':
                 arr[0].className = 'changeRed';

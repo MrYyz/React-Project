@@ -24,12 +24,12 @@ import HelpComponent from '../components/x_myComponent/components/x_help/x_help.
 import EdtComponent from '../components/x_myComponent/components/x_set/x_set_ed.js'
 import EdtAddress from '../components/x_myComponent/components/x_address/x_set_ed.js'
 import AddComponent from '../components/x_myComponent/components/x_address/x_address_add.js'
-
+import ThepagelistComponent from '../components/thepagelistComponent/thepagelistComponent.js'
 import CartComponent from '../components/cart_p/cartComponent'
 import CommentsComponent from '../components/comments_p/commentsComponent'
 import Order_pComponent from '../components/order_p/orderComponent'
 
-
+import Classifycomponent from '../components/classify/classify.js'
 
 import CommodityComponet from '../components/commodity_p/commodityComponent.js'
 import '../libs/icon/iconfont.css'
@@ -44,7 +44,9 @@ export default class RootRouter extends React.Component{
                     <Route path="products" component={ProductsComponent}></Route>
 
                     <Route path="index" component={IndexComponent}></Route>
-
+                    <Route path="thepagelist(/:data)" component={ThepagelistComponent}></Route>
+                    
+                    <Route path="classify" component={Classifycomponent}></Route>
                     <Route path="my" component={MyComponent}></Route>
                     <Route path="order" component={OrderComponent}></Route>
                     <Route path="collect" component={CollectComponent}></Route>
