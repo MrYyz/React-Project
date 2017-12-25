@@ -13,7 +13,6 @@ input{
 header,footer,section,main,nav{
 	display:block;}
 body{
-	font-size:24px;
 	font-family:"微软雅黑";
 	color:#3e3e3e;}
 a{
@@ -23,5 +22,15 @@ a:hover{
 	text-decoration:underline;}
 *{
 	box-sizing:border-box;}
-
+ /*清楚浮动*/
+.clearfix::after{
+    content:"";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    /*兼容IE*/
+    zoom: 1;
+}
 

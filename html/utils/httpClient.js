@@ -3,6 +3,7 @@ import request from 'superagent'
 
 const LOCAL_SERVER = 'http://localhost:1706/git_react/React-Project/php/';
 
+
 const DEV_SERVER = '';
 const PRO_SERVER = '';
 
@@ -37,7 +38,7 @@ const HttpClient = {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(res.body);
+                    resolve(res.body || JSON.parse(res.text));
                 }
             });
     })

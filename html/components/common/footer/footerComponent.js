@@ -6,6 +6,7 @@ import { hashHistory } from 'react-router'
 
 export default class FooterComponent extends React.Component{
     changeRouter(event){
+
         const route = event.target.attributes['name'].value;
         const arr = document.getElementsByName(route);
         const ul = arr[0].parentNode;
@@ -29,7 +30,7 @@ export default class FooterComponent extends React.Component{
                 break;
             case 'toMine':
                 arr[0].className = 'changeRed';
-                hashHistory.push('mine');
+                hashHistory.push('my');
                 break;
         }
     }

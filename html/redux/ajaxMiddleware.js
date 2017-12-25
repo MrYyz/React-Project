@@ -4,7 +4,6 @@ export function ajaxMiddleware(api){
     return function(dispatch){
         return function(action){
 
-      
             const {types, url, method = 'get', components,params={},banner,handbag} = action
 
             let response='';
@@ -19,9 +18,11 @@ export function ajaxMiddleware(api){
 
             
             })
+
+
             if(url){
                 http[method](url, params).then(res => {
-               
+
                     api.dispatch({
                         type: types[1],
                         response: res,
@@ -32,7 +33,8 @@ export function ajaxMiddleware(api){
                    
                 }).catch(error => {
                     api.dispatch({
-                        type:types[2],
+                        type: types[2],
+
                         error
                     })
                 })
