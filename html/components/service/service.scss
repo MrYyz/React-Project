@@ -1,0 +1,65 @@
+body{
+    margin:0;
+}
+#service{
+    width:100%;
+    height:100%;
+    background-color:#F7F7F7;
+    background-color:#fff;
+    .serviceHeader{
+        height:1.92rem;
+        h2{
+            margin:0;
+            overflow:hidden;
+            font-size:0.666667rem;
+            line-height:1.92rem;
+            position:relative;
+            text-align:center;
+            border-bottom:0.013333rem solid #ccc;
+            span{
+                position:absolute;
+                left:0;
+                padding:0 0.533333rem;
+                color:#aaa;
+            }
+        }
+    }
+    .serviceMain{
+        width:100%;
+        font-size:0.48rem;
+        .serviceToWeChat,.serviceToPhone{
+            border:0.013333rem solid #ccc;
+            padding-bottom:0.266667rem;
+            div{
+                overflow:hidden;
+                // margin-bottom:1rem;
+                div:nth-child(1){
+                    line-height:1.6rem;
+                    img{
+                        width:2rem;
+                        margin-right:0.133333rem;
+                        float:left;
+                    }
+                    span{
+                        float:right;
+                        margin-right:0.5rem;
+                        i{margin-right:0.133333rem;}
+                    }
+                }
+                div:nth-child(2){
+                    padding-left:2.133333rem;
+                    span{
+                        float:right;
+                        margin-right:0.5rem;
+                        padding:0.133333rem 0.266667rem;
+                        border:0.026667rem solid #ccc;
+                        border-radius:0.133333rem;
+                        text-align:center;
+                        i{margin-right:0.133333rem;}
+                    }
+                }
+            }
+        }
+    }
+}
+
