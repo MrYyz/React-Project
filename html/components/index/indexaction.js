@@ -110,6 +110,10 @@ function indextui(arr){
                 hashHistory.push('zhekou');
                 
             }
+            function newman(){
+                hashHistory.push('newman');
+                
+            }
     return (
        <div>
             <div>
@@ -136,7 +140,7 @@ function indextui(arr){
                             <span className="icon-wxbbiaowang"></span>
                                 <span>抢折扣</span>
                             </li>
-                            <li>
+                            <li onClick={newman}>
                             <span className="icon-iconset0206"></span>
                                 <span>新人礼</span>
                             </li>                

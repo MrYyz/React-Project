@@ -1,0 +1,41 @@
+.ruihuan-header{
+    display: flex;
+    height: .99839rem;
+    font-size: .402576rem;
+    font-weight: bold;
+    line-height: .99839rem;
+    span:first-child{
+        margin-left: .273752rem;
+        margin-right: 3.365539rem;
+        font-size: .644122rem;
+        color:#9B9B9B;
+    }
+}
+.thebanner1{
+    height: 4.347826rem;
+    // background-image: url('html/img/thebanner.jpg');
+    background-size:100% 100%;
+}
+.thep1{
+    margin-top: .917874rem;
+    font-size: .402576rem;
+    color:#5C5C5C;
+    text-align: center;
+}
+.thep2{
+    margin-top: .177134rem;
+    font-size: .305958rem;
+    color:#A1A1A1;
+    text-align: center;
+}
+.istheimg{
+ 
+    display: flex;
+    flex-wrap: wrap;
+    div{
+             height: 1.980676rem;
+            width: 3.993559rem;
+            margin-left: .676329rem;
+            margin-top: .322061rem;
+     }
+}

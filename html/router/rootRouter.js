@@ -29,7 +29,7 @@ import ThepagelistComponent from '../components/thepagelistComponent/thepagelist
 import CartComponent from '../components/cart_p/cartComponent'
 import CommentsComponent from '../components/comments_p/commentsComponent'
 import Order_pComponent from '../components/order_p/orderComponent'
-
+import NewmanComponent from '../components/newman/newmanComponent'
 import Classifycomponent from '../components/classify/classify.js'
 
 import CommodityComponet from '../components/commodity_p/commodityComponent.js'
@@ -44,7 +44,8 @@ export default class RootRouter extends React.Component{
                 <Route path="/" component={AppComponent}>
                     <IndexRoute component={IndexComponent}/>
                     <Route path="index" component={IndexComponent}></Route>
-
+                    <Route path="newman" component={NewmanComponent}></Route>
+                    
                     <Route path="thepagelist(/:data)" component={ThepagelistComponent}></Route>
                     
                     <Route path="classify" component={Classifycomponent}></Route>
