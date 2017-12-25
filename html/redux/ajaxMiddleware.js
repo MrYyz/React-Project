@@ -4,6 +4,7 @@ export function ajaxMiddleware(api){
     return function(dispatch){
         return function(action){
             const {types, url, method, params = {}} = action;
+
             if(!url){
                 return dispatch(action)
             }
@@ -21,6 +22,7 @@ export function ajaxMiddleware(api){
                         type: types[2],
                         error
                     })
+
                 })
             }
         }

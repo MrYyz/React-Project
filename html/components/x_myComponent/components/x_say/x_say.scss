@@ -1,0 +1,108 @@
+.x_say {
+	display:flex;
+	flex-direction: column;
+	.x_say_head{
+		height:1.25333333rem; // 124px
+		display:flex;
+		i.icon-arrowleft{
+			position: absolute;
+			top:0;
+			left:0;
+			color:#555555;
+		}
+		i,p{
+			font-size:.7rem; // 72px
+			line-height:1.25333333rem; // 124px
+		}
+		.x_c_title{
+			font-size:.48rem;
+			margin-left:50%;
+			transform: translate(-50%,0);
+		}
+		border: .01333333rem solid #E5E5E5;
+	}
+
+	.x_say_options {
+			height:1rem; // 120px
+			display:flex;
+			justify-content:space-around;
+			align-items:center;
+			border: .01333333rem solid #E5E5E5;
+			text-align:center;
+			p{
+				font-size:.40666667rem; // 26px
+				width:4.33333333rem; // 100px
+				line-height:1rem; // 120px
+			}
+			p.x_action {
+				color:#FE0E4D;
+				border-bottom:.02666667rem solid #FE0E4D;
+			}
+	}
+
+	.x_say_content {
+		
+		padding-left: .45rem; // 30px
+		ul{
+			margin-top:.10333333rem; // 4px
+		}
+		li{
+			
+			border-bottom:.02666667rem solid #E5E5E5;
+		}
+		.x_say_user{
+			padding-top:.13333333rem; // 10px
+			overflow:hidden;
+			height:1rem;
+			div {
+				width: 1.53333333rem;
+
+				float:left;
+				border-radius: 50%;
+				border: .02666667rem solid #fff; // 1px
+				text-align:center;
+				i {
+					font-size:1.066667rem;
+					line-height: 1rem;// 80px
+				}
+			}
+			span{
+				float:left;
+				font-size:.34666667rem; // 26px
+				line-height:1rem; // 100px
+			}
+
+			p {
+				float: left;
+				line-height: 1rem;
+				margin-left: 20px;
+				font-size: .37333333rem; // 28px
+			}
+		}
+		.x_say_g_content{
+			padding-top: .13333333rem;
+			flex:1;
+			p{
+				line-height:.53333333rem; // 40px
+				font-size:.32rem; // 24px
+				margin-left: 2rem; // 150px
+			}
+			span{
+				display:block;
+				line-height: .53333333rem; // 40px
+				margin-bottom: .26666667rem; // 20px
+				font-size:.26666667rem; // 20px
+			}
+			p:nth-child(3){
+				font-size: .26666667rem; // 20px
+				text-align:center;
+			}
+		}
+	}
+
+	.x_say_over {
+		font-size:.34666667rem; // 26px
+		text-align:center;
+		line-height:.66666667rem; // 50px
+	}
+}

@@ -35,8 +35,6 @@ export function banner(){
                     <span>新人礼</span>
                 </li>                
         </ul>
-        <div className="thelist">
-                <h1>--- 为你推荐 ---</h1>
-        </div>
+
     </div>
 )}
