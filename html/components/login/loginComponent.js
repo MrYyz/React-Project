@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './login.scss'
+// import './login.scss'
 import { hashHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 

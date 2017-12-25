@@ -4,8 +4,9 @@ export function ajaxMiddleware(api){
     return function(dispatch){
         return function(action){
 
-           console.log(action,'---------------action');
+      
             const {types, url, method = 'get', components,params={},banner,handbag} = action
+
             let response='';
 
             if(!url){
@@ -13,20 +14,16 @@ export function ajaxMiddleware(api){
             }
 
             api.dispatch({
-                type: 'beforeRequest'
-                
-            })
-            if(url){
-
+                type: types[0]
+            
 
             
-                   
-                    
-
+            })
+            if(url){
                 http[method](url, params).then(res => {
-
+               
                     api.dispatch({
-                        type: 'Requested',
+                        type: types[1],
                         response: res,
                         components: components,
                         banner:banner,
@@ -35,7 +32,7 @@ export function ajaxMiddleware(api){
                    
                 }).catch(error => {
                     api.dispatch({
-                        type: 'requestError',
+                        type:types[2],
                         error
                     })
                 })

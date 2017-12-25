@@ -4,7 +4,7 @@ import { hashHistory, Link } from 'react-router';
 
 import { connect } from 'react-redux'
 
-import './register.scss'
+// import './register.scss'
 
 import * as RegisterAction from "./registerAction.js"
 
