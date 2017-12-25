@@ -120,7 +120,9 @@ class CartComponent extends React.Component{
             if(choose[i].checked){
                 let qty = li[i].lastElementChild.lastElementChild.firstElementChild.nextElementSibling.innerHTML*1;
                 let price = li[i].children[2].children[1].children[0].innerHTML*1;
-                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:'carl',goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:qty*price,sort:'order'},'get')
+                let tota = (qty*price).toFixed(2);
+                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:'carl',sort:'del'},'get')
+                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:'carl',goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:tota,sort:'order'},'get')
             }
         }
         let path = '/order_p/' + order_guid;
@@ -128,7 +130,7 @@ class CartComponent extends React.Component{
     }
     //跳转帮助
     skip_help(){
-        hashHistory.push('/');
+        hashHistory.push('/help');
     }
     render(){
         return (

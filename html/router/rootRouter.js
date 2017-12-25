@@ -45,7 +45,7 @@ export default class RootRouter extends React.Component{
                     <Route path="collect" component={CollectComponent}></Route>
                     <Route path="say" component={SayComponent}></Route>
                     <Route path="set" component={SetComponent}></Route>
-                    <Route path="address" component={AddressComponent}></Route>
+                    <Route path="address(/:order_guid)" component={AddressComponent}></Route>
                     <Route path="help" component={HelpComponent}></Route>
                     <Route path="edt" component={EdtComponent}></Route>
                     <Route path="edtAddress" component={EdtAddress}></Route>
@@ -58,7 +58,7 @@ export default class RootRouter extends React.Component{
                 <Route path="/register" component={RegisterComponent}></Route>
                 <Route path="/commodity(/:guId)" component={CommodityComponet}></Route>
                 <Route path="/comments(/:guId)" component={CommentsComponent}></Route>
-                <Route path="/order_p(/:order_guid)" component={Order_pComponent}></Route>
+                <Route path="/order_p(/:order_guid)(/:id)" component={Order_pComponent}></Route>
 
             </Router>
         )

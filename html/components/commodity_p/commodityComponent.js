@@ -4,6 +4,7 @@ import { Carousel , WhiteSpace, WingBlank} from 'antd-mobile';
 import {Router, Route, hashHistory,Link} from 'react-router'
 import * as CommodityAction from './commodityAction'
 import './commodity.scss';
+import Spinner_p from '../spinner/spinnerComponent.js'
 
 class CommodityComponent extends React.Component{
     state = {
@@ -11,11 +12,12 @@ class CommodityComponent extends React.Component{
         degree:0,//小弹窗的类型：收藏或点赞
         shopQty:0,//购物车的数量
         status_p: '',
+        show:false
     }
     //轮播图
     componentDidMount() {
         // let initparams = this.props.location.query.guId
-        let initparams = this.props.params.guId
+        let initparams = this.props.params.guId;//接受传来的id
         this.props.getComData('commodity_p.php',{guId:initparams,username:'carl'},'get')
         // simulate img loading
         setTimeout(() => {
@@ -24,12 +26,9 @@ class CommodityComponent extends React.Component{
           });
           //显示购物车的数量
           this.shopqty(this.props.dataset_p5);
-          //收藏图标是否高亮
-          if(this.props.dataset_p6.length>0){
-            this.refs.collect.children[0].children[0].classList.add('col_active');
-          }
         }, 100);
     }
+
     //点赞
     zan(){
         this.refs.upwin.classList.add('upwin_active');
@@ -108,7 +107,6 @@ class CommodityComponent extends React.Component{
     }
     //确认按钮
     verify_p(){
-        console.log(this.refs.comqty_p.innerHTML)
         let initparams = this.props.params.guId;
         if(this.state.status_p == 'join_p'){
             //确认加入购物车
@@ -123,8 +121,7 @@ class CommodityComponent extends React.Component{
         }else if(this.state.status_p == 'buy_p'){
             //确认购买并跳转到订单页面
             let order_guid = 'g' + Date.now();
-            let total = this.refs.comqty_p.innerHTML*this.props.dataset_p1[0].price;
-            console.log(total);
+            let total = (this.refs.comqty_p.innerHTML*this.props.dataset_p1[0].price).toFixed(2);
             this.props.getComData('commodity_p.php',{guId:initparams,username:'carl',goodsQty:this.refs.comqty_p.innerHTML,order_guid:order_guid,order_status:'待付款',total:total,sort:'buy'},'get')
             let path = '/order_p/' + order_guid;
             hashHistory.push(path);
@@ -136,8 +133,8 @@ class CommodityComponent extends React.Component{
         let path = '/commodity/' + eleLi.dataset.id;
         if(eleLi.tagName.toLowerCase() == 'li'){
             hashHistory.push(path);
-            // this.props.getComData('commodity_p.php',{guId:eleLi.dataset.id,username:'carl'},'get')
-            location.reload();
+            this.props.getComData('commodity_p.php',{guId:eleLi.dataset.id,username:'carl'},'get')
+            // location.reload();
         }
     }
     //跳转评论
@@ -151,6 +148,20 @@ class CommodityComponent extends React.Component{
     }
     index_p(){
         hashHistory.push('/');
+    }
+    //loading层
+    componentWillUpdate(nextProps, nextState){
+        if(nextProps.loadStatus == 0){
+            nextState.show = true;
+        }else if(nextProps.loadStatus == 1){
+            nextState.show = false;
+        }
+        //收藏图标是否高亮
+        if(nextProps.dataset_p6.length>0){
+            this.refs.collect.children[0].children[0].classList.add('col_active');
+        }else{
+            this.refs.collect.children[0].children[0].classList.remove('col_active');
+        }
     }
     render(){
         return (
@@ -299,12 +310,14 @@ class CommodityComponent extends React.Component{
                         </div>
                     </div>
                 </div>
+                <Spinner_p show={this.state.show}/>
             </div>
         )
     }
 }
 const mapToState = function(store){
     return {
+        loadStatus: store.Commodity_p.status,
         dataset_p1: store.Commodity_p.data1 || [],
         dataset_p2: store.Commodity_p.data2 || [],
         dataset_p3: store.Commodity_p.data3 || [],

@@ -10,18 +10,18 @@ class OrderComponent extends React.Component{
         rental: 0,
     }
     componentDidMount(){
-        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl'},'get');
+        if(this.props.params.id){
+            this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl',id:this.props.params.id},'get');
+        }else{
+            this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl'},'get');
+        }
         setTimeout(()=>{
             let total = 0;
-            console.log(this.refs);
-            for(var attr in this.refs){
-                console.log(this.refs[attr].children[4].children[1].children[0])
-                total += this.refs[attr].children[4].children[1].children[0].innerHTML*1;
-            }
+            this.setState({rental:0});
             for(var i=0;i<this.props.dataset_p1.length;i++){
                 total += this.props.dataset_p1[i].total*1;
             }
-            this.setState({rental:total});
+            this.setState({rental:total.toFixed(2)});
         },500)
     }
     //单个商品的合计
@@ -30,15 +30,35 @@ class OrderComponent extends React.Component{
             let freight = this.refs[ele].children[2].children[0].children[0].innerHTML;
             let discounts = this.refs[ele].children[3].children[1].children[0].innerHTML;
             let tot = this.refs[ele].children[4].children[1].children[0];
-            return tot.innerText = total - freight - discounts;
+            return tot.innerText = (total - freight - discounts).toFixed(2);
         }
+    }
+    //跳转地址管理
+    skip_address(){
+        let pathad = '/address/' + this.props.params.order_guid;
+        hashHistory.push(pathad);
+    }
+    //完成并跳转我的页面
+    finish(){
+        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl',sort:'finish',order_status:'已完成',id:this.props.params.id},'get');
+        hashHistory.push('/My');
+    }
+    //返回键跳转
+    skipBack(){
+        this.props.router.goBack();
+    }
+    //消单
+    deleteord(){
+        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl',sort:'dele'},'get');
+        this.props.router.goBack();
     }
     render(){
         return(
             <div id="order_p">
                 <div className="header">
-                    <i className="iconfont icon-fanhui"></i>
+                    <i className="iconfont icon-fanhui" onClick={this.skipBack.bind(this)}></i>
                     确认订单
+                    <span onClick={this.deleteord.bind(this)}>消单</span>
                 </div>
                 <div className="main">
                     <div className="hint">
@@ -47,11 +67,13 @@ class OrderComponent extends React.Component{
                             <p>小提示：如遇到商品价格上涨、卖家限购、缺货或下单时已过促销期等原因，会导致直购不成功，所付款项将全额原路返回，请比友理解</p>
                         </div>
                     </div>
-                    <div className="address">
+                    <div className="address" onClick={this.skip_address.bind(this)}>
                         {
                             this.props.dataset_p2.map((obj,idx)=>{
                                 if(obj.default == '0'){
-                                    return <div key={obj.id}><p><span>收货人：<i>{obj.rname}</i></span><span>{obj.phone}</span></p><div><p><i className="iconfont icon-dizhi"></i></p><p>收货地址：<i>{obj.address}</i></p></div></div>
+                                    return <div key={idx}><p><span>收货人：<i>{obj.rname}</i></span><span>{obj.phone}</span></p><div><p><i className="iconfont icon-dizhi"></i></p><p>收货地址：<i>{obj.address}</i></p></div></div>
+                                }else if(this.props.params.id){
+                                    return <div key={idx}><p><span>收货人：<i>{obj.rname}</i></span><span>{obj.phone}</span></p><div><p><i className="iconfont icon-dizhi"></i></p><p>收货地址：<i>{obj.address}</i></p></div></div>
                                 }
                             })
                         }
@@ -62,7 +84,7 @@ class OrderComponent extends React.Component{
                         <ul>
                             {
                                 this.props.dataset_p1.map((item,index)=>{
-                                    return <li key={item.guId} ref={item.guId}><div className="commodity"><div><img src="/html/imgs/b.jpg" /></div><div><p>{item.name}</p><p>x <span>{item.goodsQty}</span></p><p>￥<span>{item.price}</span></p></div></div><p>商品价格 <span>￥<i>{item.total}</i></span></p><p>运费 <span>￥<i>1000.00</i></span></p><p><i className="iconfont icon-youhuiquan"></i>优惠卷 <span>-￥<i>0.00</i></span></p><div>共<span>5</span>件商品，合计<span>￥<i>{this.rental_g(item.guId,item.total)}</i></span></div></li>
+                                    return <li key={item.guId} ref={item.guId}><div className="commodity"><div><img src="/html/imgs/b.jpg" /></div><div><p>{item.name}</p><p>x <span>{item.goodsQty}</span></p><p>￥<span>{item.price}</span></p></div></div><p>商品价格 <span>￥<i>{item.total}</i></span></p><p>运费 <span>￥<i>0.00</i></span></p><p><i className="iconfont icon-youhuiquan"></i>优惠卷 <span>-￥<i>0.00</i></span></p><div>共<span>5</span>件商品，合计<span>￥<i>{this.rental_g(item.guId,item.total)}</i></span></div></li>
                                 })
                             }
                         </ul>
@@ -74,7 +96,7 @@ class OrderComponent extends React.Component{
                 </div>
                 <div className="footer">
                     <div>总计 ￥<span id="rental">{this.state.rental}</span></div>
-                    <div>提交订单</div>
+                    <div onClick={this.finish.bind(this)}>提交订单</div>
                 </div>
             </div>
         )
@@ -82,7 +104,7 @@ class OrderComponent extends React.Component{
 }
 
 const mapToState = function(store){
-    console.log(store.Order_p.data1,store.Order_p.data2)
+    console.log(store.Order_p.data1)
     return {
         dataset_p1: store.Order_p.data1 || [],
         dataset_p2: store.Order_p.data2 || [],
