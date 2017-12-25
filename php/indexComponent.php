@@ -1,4 +1,6 @@
 <?php
+    header("Access-Control-Allow-Origin:*");
+
     include 'connect.php';
     $recommend=isset($_GET['recommed'])?$_GET['recommed']:"";
     $handbag=isset($_GET['handbag'])?$_GET['handbag']:"";

@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, hashHistory} from 'react-router'
+import {Router, Route, hashHistory,IndexRoute} from 'react-router'
 import AppComponent from '../components/app/appComponent'
 
 import ProductsComponent from '../components/products/productsComponent'
 import IndexComponent from '../components/index/indexComponent'
 import Indexregist from '../components/indexregist/indexregist'
+import Indexruihuan from '../components/ruihuan/ruihuanComponent.js'
+import zhekouComponent from '../components/zhekou/zhekouComponet'
 import LoginComponent from '../components/login/loginComponent.js'
 import RegisterComponent from '../components/register/registerComponent.js'
+import MessageComponent from '../components/message/messageComponent.js'
 
 import '../libs/base.css'
 
@@ -39,6 +42,8 @@ export default class RootRouter extends React.Component{
         return(
             <Router history={hashHistory}>
                 <Route path="/" component={AppComponent}>
+                    <IndexRoute component={IndexComponent}/>
+                    <Route path="index" component={IndexComponent}></Route>
                     <Route path="products" component={ProductsComponent}></Route>
                     <Route path="my" component={MyComponent}></Route>
                     <Route path="order" component={OrderComponent}></Route>
@@ -51,15 +56,21 @@ export default class RootRouter extends React.Component{
                     <Route path="edtAddress" component={EdtAddress}></Route>
                     <Route path="addAddress" component={AddComponent}></Route>
                     <Route path="cart" component={CartComponent}></Route>
+                    <Route path="ruihuan" component={Indexruihuan}></Route>                
+                    <Route path="regist" component={Indexregist}></Route>
+                    <Route path="/zhekou" component={zhekouComponent}></Route>  
                 </Route>
-                <Route path="index" component={IndexComponent}></Route>
-                <Route path="regist" component={Indexregist}></Route>
                 <Route path="/login" component={LoginComponent}></Route>
                 <Route path="/register" component={RegisterComponent}></Route>
+                <Route path="/message" component={MessageComponent}></Route>
                 <Route path="/commodity(/:guId)" component={CommodityComponet}></Route>
                 <Route path="/comments(/:guId)" component={CommentsComponent}></Route>
+<<<<<<< HEAD
                 <Route path="/order_p(/:order_guid)(/:id)" component={Order_pComponent}></Route>
 
+=======
+                <Route path="/order_p(/:order_guid)" component={Order_pComponent}></Route>
+>>>>>>> 4fbfd9e09b7a2990d39b38efc8da10ee171208f1
             </Router>
         )
     }

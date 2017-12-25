@@ -12,9 +12,12 @@
     }
 }
 .regist-div1{
-    height: 5.716586rem;
+    height: 3.71658rem;
     display: flex;
+    justify-content: center;
+    margin-top: .982287rem;
     div:first-child{
+        margin-left: -.933977rem;
         height: 2.028986rem;
         width: 2.028986rem;
         background: #E4E4E4;
@@ -24,4 +27,104 @@
         line-height: 2.028986rem;
         text-align: center;
     }
+    div:last-child{
+        padding-top: .273752rem;
+        width: 3.719807rem;
+        margin-left: 1.231884rem;
+        p{
+            font-size: .354267rem;
+            color:black;
+            font-weight: bold;
+            margin-bottom: .595813rem;
+            
+        }
+        ul{
+            display: flex;
+            li{
+                width: .740741rem;
+                height: .869565rem;
+                border: 2px dashed #C8C9CB;
+                font-size: 36px;
+                color:black;
+                font-weight: bold;
+                text-align: center;
+                line-height: .869565rem;
+                margin-right: .289855rem;
+            }
+        }
+    }
+}
+.qiandao{
+    display: flex;
+    li:first-child{
+        width: 1.73913rem;
+        margin-left: 168px;
+        margin-right: 1.771337rem;
+        p{
+            margin-bottom: .20934rem;
+            span:first-child{
+                font-size: .338164rem;
+                color:black;
+                font-weight: bold;
+            }
+            span:last-child{
+                font-size: .338164rem;
+       
+                color:#D9194A;                
+            }
+        }
+    }
+    li:last-child{
+        width: 2.777778rem;
+        height: .966184rem;
+        background-color:#FEA88F;
+        color:white;
+        font-size: .37037rem;
+        line-height: .966184rem;
+        text-align: center;
+        border-radius: .402576rem .402576rem;
+        button{
+            display: block;
+            background-color:#FEA88F;
+            box-sizing:border-box;
+            border: 0 none;
+            width: 100%;
+            height: 100%;
+            border-radius: .402576rem .402576rem;
+           text-align: center;
+           color:white;
+           font-size: .37037rem;
+            
+        }
+    }
+
+}
+
+.registmoney{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: .644122rem;
+    li{
+        width: 3.864734rem;
+        height: 2.512077rem;
+        background-size: 100% 100%;
+        margin-left: .780998rem;
+        margin-top: .483092rem;
+    }
+}
+.indexactive{
+    font-size: .466989rem;
+    text-align: center;
+    font-weight: bold;
+    margin-top: .966184rem;
+}
+.registuser2{
+    margin-left: -.933977rem;
+    height: 2.028986rem;
+    width: 2.028986rem;
+    font-size: .483092rem;
+    color:black;
+    line-height: 2.028986rem;
+    text-align: center;
+    display: none;
 }

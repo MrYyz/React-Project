@@ -3,7 +3,7 @@
     function connect_oop(){
         // 配置参数
         $servername = '10.3.135.52';
-        $username = 'linda';
+        $username = 'yezhang';
         $password = '123456';
         $database = 'itemthree';
 
@@ -66,7 +66,7 @@
     //初始化连接对象方法
     function connect(){
         $servername = "10.3.135.52";//
-        $username = "linda";
+        $username = "yezhang";
         $password = "123456";
         $dbname = 'itemthree'; 
         //初始化连接，返回一个连接对象(包含所连接数据库的信息)
