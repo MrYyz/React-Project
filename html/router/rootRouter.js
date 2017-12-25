@@ -65,12 +65,7 @@ export default class RootRouter extends React.Component{
                 <Route path="/message" component={MessageComponent}></Route>
                 <Route path="/commodity(/:guId)" component={CommodityComponet}></Route>
                 <Route path="/comments(/:guId)" component={CommentsComponent}></Route>
-<<<<<<< HEAD
                 <Route path="/order_p(/:order_guid)(/:id)" component={Order_pComponent}></Route>
-
-=======
-                <Route path="/order_p(/:order_guid)" component={Order_pComponent}></Route>
->>>>>>> 4fbfd9e09b7a2990d39b38efc8da10ee171208f1
             </Router>
         )
     }

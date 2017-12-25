@@ -11,9 +11,9 @@ class OrderComponent extends React.Component{
     }
     componentDidMount(){
         if(this.props.params.id){
-            this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl',id:this.props.params.id},'get');
+            this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:window.localStorage.username,id:this.props.params.id},'get');
         }else{
-            this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl'},'get');
+            this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:window.localStorage.username},'get');
         }
         setTimeout(()=>{
             let total = 0;
@@ -40,7 +40,7 @@ class OrderComponent extends React.Component{
     }
     //完成并跳转我的页面
     finish(){
-        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl',sort:'finish',order_status:'已完成',id:this.props.params.id},'get');
+        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:window.localStorage.username,sort:'finish',order_status:'已完成',id:this.props.params.id},'get');
         hashHistory.push('/My');
     }
     //返回键跳转
@@ -49,7 +49,7 @@ class OrderComponent extends React.Component{
     }
     //消单
     deleteord(){
-        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:'carl',sort:'dele'},'get');
+        this.props.getOrderData('order_p.php',{order_guid:this.props.params.order_guid,username:window.localStorage.username,sort:'dele'},'get');
         this.props.router.goBack();
     }
     render(){
@@ -84,7 +84,7 @@ class OrderComponent extends React.Component{
                         <ul>
                             {
                                 this.props.dataset_p1.map((item,index)=>{
-                                    return <li key={item.guId} ref={item.guId}><div className="commodity"><div><img src="/html/imgs/b.jpg" /></div><div><p>{item.name}</p><p>x <span>{item.goodsQty}</span></p><p>￥<span>{item.price}</span></p></div></div><p>商品价格 <span>￥<i>{item.total}</i></span></p><p>运费 <span>￥<i>0.00</i></span></p><p><i className="iconfont icon-youhuiquan"></i>优惠卷 <span>-￥<i>0.00</i></span></p><div>共<span>5</span>件商品，合计<span>￥<i>{this.rental_g(item.guId,item.total)}</i></span></div></li>
+                                    return <li key={item.guId} ref={item.guId}><div className="commodity"><div><img src={item.imgUrl} /></div><div><p>{item.name}</p><p>x <span>{item.goodsQty}</span></p><p>￥<span>{item.price}</span></p></div></div><p>商品价格 <span>￥<i>{item.total}</i></span></p><p>运费 <span>￥<i>0.00</i></span></p><p><i className="iconfont icon-youhuiquan"></i>优惠卷 <span>-￥<i>0.00</i></span></p><div>共<span>5</span>件商品，合计<span>￥<i>{this.rental_g(item.guId,item.total)}</i></span></div></li>
                                 })
                             }
                         </ul>
