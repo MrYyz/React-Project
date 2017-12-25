@@ -18,7 +18,11 @@ class CommodityComponent extends React.Component{
     componentDidMount() {
         // let initparams = this.props.location.query.guId
         let initparams = this.props.params.guId;//接受传来的id
-        this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username},'get')
+        if(window.localStorage.username){
+            this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username},'get')
+        }else{
+            this.props.getComData('commodity_p.php',{guId:initparams},'get')
+        }
         // simulate img loading
         setTimeout(() => {
           this.setState({
