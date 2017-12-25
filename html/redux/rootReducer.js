@@ -8,6 +8,8 @@ import LoginReducer from '../components/login/loginReducer.js'
 import RegisterReducer from '../components/register/registerReducer.js'
 import MessageReducer from '../components/message/messageReducer.js'
 
+import indexReducer from '../components/index/indexReducer.js'
+import zhekouReducer from '../components/zhekou/zhekouReducer.js'
 
 import order from '../components/x_myComponent/components/x_order/x_order_reducer.js'
 import address from '../components/x_myComponent/components/x_address/x_address_reducer.js'
@@ -21,9 +23,9 @@ export default combineReducers({
     address,
     collect,
     set,
-    LoginReducer,RegisterReducer,
     Cart_p,
     Commodity_p,
     Comments_p,
-    Order_p
+    Order_p,
+    indexReducer,zhekouReducer
 })

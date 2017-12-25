@@ -1,4 +1,5 @@
 export default function LoginReducer(state={},action){
+    // console.log('LoginReducer=')
     const newState = JSON.parse(JSON.stringify(state));
     switch (action.type){
         case "RegisterBeforeRequest":

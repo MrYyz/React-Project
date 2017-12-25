@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { hashHistory, Link } from 'react-router';
-
 import { connect } from 'react-redux'
 import './register.scss'
-import Spinner from '../spinner/spinnerComponent.js'
+import Spinner from '../spinner/spinnerComponent1.js'
 import * as RegisterAction from "./registerAction.js"
 
 class RegisterComponent extends React.Component{

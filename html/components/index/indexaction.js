@@ -1,6 +1,7 @@
 import $ from '../../libs/jquery.min.js'
 import React from 'react'
 
+import { hashHistory } from 'react-router'
 
 // import * as Indexcomponents from './indexcomponents'
 const nav=['li1','li2','li3','li4'];
@@ -90,7 +91,7 @@ let set;
 export function recommed(_url){
   
     return {
-        type:['beforeRequset','Requested','requestError'],
+        types:['beforeRequset','Requested','requestError'],
         url: _url,
         banner: banner,
         components:indextui,
@@ -98,30 +99,40 @@ export function recommed(_url){
     }
 }
 function indextui(arr){
-            
+            function qiandao(){
+                hashHistory.push('regist');
+            }
+            function ruihuan(){
+                hashHistory.push('ruihuan');
+                
+            }
+            function zhekou(){
+                hashHistory.push('zhekou');
+                
+            }
     return (
        <div>
             <div>
-                    <div className="indexbanner" ref="indexbanner">
+                    <div className="indexbanner">
                                 <ul className="bannerul" style={_style}>
                                         {
                                             nav.map(function(item,idx){
-                                                    return <li className={'banner'+idx} key={'banner'+idx} style={{width:window.innerWidth+'px',backgroundImage:'url(http://10.3.135.243:1706/git_react/React-Project/html/libs/images/banner'+(idx+1)+'.jpg)',backgroundSize:'cover'}}></li>
+                                                    return <li className={'banner'+idx} key={'banner'+idx} style={{width:window.innerWidth+'px',backgroundImage:'url(html/libs/images/banner'+(idx+1)+'.jpg)',backgroundSize:'cover'}}></li>
                                             })
                                         }
                                 </ul>
                     </div>
                     <ul className="index_routes iconfont">
-                            <li >
+                            <li onClick={qiandao}>
                                 <span className="icon-qiandao"></span>
-                                <span>签到</span>
+                                <span >签到</span>
                                 
                             </li>
-                            <li>
+                            <li onClick={ruihuan}>
                             <span className="icon-daifukuan"></span>
                                 <span>积分兑换</span>
                             </li>
-                            <li>
+                            <li onClick={zhekou}>
                             <span className="icon-wxbbiaowang"></span>
                                 <span>抢折扣</span>
                             </li>

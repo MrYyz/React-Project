@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import * as LoginAction from './loginAction.js'
 
-import Spinner from '../spinner/spinnerComponent.js'
+import Spinner from '../spinner/spinnerComponent1.js'
 
 class LoginComponent extends React.Component{
     state = {
@@ -86,7 +86,7 @@ class LoginComponent extends React.Component{
 }
 
 const mapToState = function(state){
-    console.log('state111',state)
+    // console.log('state111',state)
     return{
         type:state.LoginReducer.status,
         dataset:state.LoginReducer.body || [],
