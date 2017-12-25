@@ -21,7 +21,7 @@ let arr=[],datalists,theisgood;
                 var time=(date.getMonth()+1)+'-'+date.getDay()+' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
               
                 datalists=arr.map(function(item,idx){
-                     return (<div className="datalists iconfont" key={idx+"thedata"}>
+                     return (<div className="datalists iconfont" key={idx+"thedata"} id={item.guId}>
                                
                              <p>{time}</p>
                                 <div className="contanier"> 

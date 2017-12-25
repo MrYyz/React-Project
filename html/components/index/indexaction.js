@@ -147,7 +147,7 @@ function indextui(arr){
                                             <h1>--- 为你推荐 ---</h1>
                         <div className="indexgoodslist">{
                             arr.map(function(item,idx){
-                                return  <div className="indexlist"  key={'list'+idx} id={item.id}>
+                                return  <div className="indexlist"  key={'list'+idx} id={item.guId}>
                                             <div style={{backgroundImage: 'url('+item.imgUrl+')'}} className="Indeximg"> </div>                     
                                             <p>{item.name}</p>
                                             <p>￥{item.price}</p>
@@ -165,7 +165,7 @@ function handbag(arr){
                                             <h1>--- 为你推荐 ---</h1>
                         <div className="indexgoodslist">{
                             arr.map(function(item,idx){
-                                return  <div className="indexlist"  key={'list'+idx} id={item.id}>
+                                return  <div className="indexlist"  key={'list'+idx} id={item.guId}>
                                             <div style={{backgroundImage: 'url('+item.imgUrl+')'}} className="Indeximg"> </div>                     
                                             <p>{item.name}</p>
                                             <p>￥{item.price}</p>

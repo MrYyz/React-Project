@@ -13,7 +13,7 @@ export default class classifyComponent extends React.Component{
         const nav=['li1','li2','li3','li4'];
         const li_inner=['推荐','手提包','斜挎包','单肩包'];
         const imgurl=['','html/img/good25.jpg','html/img/good8.jpg','html/img/good18.jpg','html/img/good12.jpg','html/img/good9.jpg','html/img/good17.jpg','html/img/good4.jpg','html/img/good16.jpg'];
-        const imgfont=['全部','单肩包','卡包&零钱包','钱包','手拿包&晚宴包','手提包','女双肩包','斜挎包','女钥匙包'];
+        const imgfont=['全部','单肩包','卡包*零钱包','钱包','手拿包*晚宴包','手提包','女双肩包','斜挎包','女钥匙包'];
         let _style={width: window.innerWidth*nav.length+'px'}
            return ( <div className="classifydiv">
                             <div className="indexheader">

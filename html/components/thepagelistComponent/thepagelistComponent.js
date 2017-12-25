@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router';
 import * as thepageActions from './thepageAction.js';
 import {connect} from 'react-redux'
 import './thepage.scss';
-let thisdata,thatdata,isarray=[];
+let thisdata,thatdata,isarray=[],thei=0;
    class ThepageComponent extends React.Component{
 
 
@@ -13,7 +13,7 @@ let thisdata,thatdata,isarray=[];
                                                     <h1>--- 为你推荐 ---</h1>
                                 <div className="indexgoodslist">{
                                     arr.map(function(item,idx){
-                                        return  <div className="indexlist"  key={'list'+idx} id={item.id}>
+                                        return  <div className="indexlist"  key={'list'+idx} id={item.guId}>
                                                     <div style={{backgroundImage: 'url('+item.imgUrl+')'}} className="Indeximg"> </div>                     
                                                     <p>{item.name}</p>
                                                     <p>￥{item.price}</p>
@@ -34,15 +34,18 @@ let thisdata,thatdata,isarray=[];
             }
 
     render(){
-   
+    
             if(this.props.thatdata){
                 thatdata=this.props.thatdata;
-                console.log(thisdata);
+              
+                isarray=[];
                 thatdata.forEach(function(item,idx){
+                   
                         if(thisdata=='全部'){
                             isarray=thatdata;
                         }else{
                             if(item.type==thisdata){
+                               
                                 isarray.push(item);
                             }
                         }
