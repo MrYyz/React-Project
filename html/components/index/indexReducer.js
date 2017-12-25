@@ -1,5 +1,6 @@
 export default function DataGridReducer(state = {}, action){
    var theres=Object.assign({},action);
+   
 
     var newState = JSON.parse(JSON.stringify(state));
     switch(action.type){

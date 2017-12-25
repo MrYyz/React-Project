@@ -27,7 +27,7 @@ class Mycompoent extends React.Component {
 					<div className="x_myPic">
 						<div>
 							<i className="iconfont icon-home"></i>
-							<p>一个个</p>
+							<p onClick={this.push_login.bind(this)}>{window.localStorage.username || "请登录"}</p>
 						</div>
 					</div>
 					<div className="x_qiandao">
@@ -146,7 +146,7 @@ class Mycompoent extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getData('lv.php',{username:'carl'});
+		this.props.getData('lv.php',{username: localStorage.username});
 	}
 
 	// 
@@ -180,7 +180,7 @@ class Mycompoent extends React.Component {
 	push_address(){
 		hashHistory.push({
 			pathname: 'address',
-			query: {username: '007'}
+			query: {username: localStorage.username}
 		})
 	}
 
@@ -192,10 +192,17 @@ class Mycompoent extends React.Component {
 			pathname: 'help',
 		})
 	}
+
+	// 如没登陆
+	push_login(){
+		hashHistory.push({
+			pathname: 'login',
+		})
+	}
 }
 
 const mapToState = function(state){
-	// console.log(state);
+	console.log(state);
 	return {
 		dataset: state.order.response || []
 	}

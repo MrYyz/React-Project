@@ -1,0 +1,85 @@
+.ruihuan-header{
+    display: flex;
+    height: .99839rem;
+    font-size: .402576rem;
+    font-weight: bold;
+    line-height: .99839rem;
+    span:first-child{
+        margin-left: .273752rem;
+        margin-right: 3.365539rem;
+        font-size: .644122rem;
+        color:#9B9B9B;
+    }
+}
+.youhui{
+    height: 2.705314rem;
+    width: 9.307568rem;
+    border: .016103rem dashed #ccc;
+    margin : .322061rem  auto;
+    display: flex;
+    .youhui1{
+        width: 3.220612rem;
+        height: 100%;
+        background-image: url('/html/libs/images/ruihuan1.png');
+        background-size: 100% 100%;
+
+    }
+}
+.youhui2{
+    margin-left: .531401rem;
+    p:first-child{
+        display: flex;
+        margin-top: .305958rem;
+        span:first-child{
+            height: .740741rem;
+            width: 1.288245rem;
+            border: .032206rem solid #66CCFF;
+            font-size: .354267rem;
+            text-align: center;
+            line-height: .740741rem;
+            color: #66CCFF;
+        }
+        span:last-child{
+            font-size: .338164rem;
+            color:black;
+            line-height: .740741rem;
+            margin-left: .2657rem;
+            
+        }
+    }
+    p:nth-of-type(2){
+        font-size: .305958rem;
+        color:#575757;
+        margin-top: .161031rem;
+
+    }
+    p:last-child{
+        color:#FF342B;
+        font-size: .354267rem;
+        margin-top: .676329rem;
+    }
+}
+.rlues1{
+    width: 9.307568rem;
+    margin: .821256rem auto;
+    p{
+    font-size: .289855rem;
+    color: black;
+    line-height: .644122rem;
+    
+    }
+}
+.rlues2{
+    width: 9.307568rem;
+    margin: .466989rem auto;
+    h3{
+        font-size: .322061rem;
+        font-weight: bold;
+    }
+    p{
+        font-size: .289855rem;
+        color: black;
+        line-height: .644122rem;
+        
+    }
+}

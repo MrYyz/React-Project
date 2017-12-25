@@ -3,7 +3,6 @@ import request from 'superagent'
 
 const LOCAL_SERVER = 'http://localhost:8080/react/';
 
-
 const DEV_SERVER = '';
 const PRO_SERVER = '';
 

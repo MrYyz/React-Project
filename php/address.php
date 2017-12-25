@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin:*');
 
 include "./DBHelper.php";
 
-$username = isset($_GET['username'])?$_GET['username']:'007';
+$username = isset($_GET['username'])?$_GET['username']:'';
 
 // 地址表用户id
 $id = isset($_GET['id'])?$_GET['id']:'';
@@ -17,7 +17,7 @@ $address = isset($_GET['address'])?$_GET['address']:'';
 $default = isset($_GET['default'])?$_GET['default']:'1';
 $phone = isset($_GET['phone'])?$_GET['phone']:'';
 // 操作
-$action = isset($_GET['action'])?$_GET['action']:'1';
+$action = isset($_GET['action'])?$_GET['action']:'';
 
 switch ($action) {
 	case 'insert':

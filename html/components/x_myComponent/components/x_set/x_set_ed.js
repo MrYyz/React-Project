@@ -36,7 +36,7 @@ class EdtComponent extends React.Component {
 		)
 	}
 	componentDidMount(){
-		this.props.getData('person.php',{username:'123'});
+		this.props.getData('person.php',{username: localStorage.username});
 	}
 
 	save(){

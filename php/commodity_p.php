@@ -3,7 +3,7 @@
     header('Access-Control-Allow-Origin:*');
     header('Access-Control-Allow-Methods:POST,GET,OPTIONS'); 
     header('Access-Control-Request-Headers:accept, content-type');
-    $guId = isset($_GET["guId"]) ? $_GET["guId"] : '002';
+    $guId = isset($_GET["guId"]) ? $_GET["guId"] : '';
     $sort = isset($_GET["sort"]) ? $_GET["sort"] : '';
     $username = isset($_GET["username"]) ? $_GET["username"] : '';
     $goodsQty = isset($_GET["goodsQty"]) ? $_GET["goodsQty"] : '';
@@ -44,7 +44,7 @@
     $result = query($sql);
     $type = $result[0] -> type;
 
-    $sql1 = "select * from goodslist where guId='$guId';select * from goodsimg where guId='$guId';select * from evaluate where guId='$guId' limit 0,3;select * from goodslist where type='$type' limit 0,10;select * from sppingcart where username='$username';select * from goodscollection where guId='$guId' and username='$username'";
+    $sql1 = "select * from goodslist where guId='$guId';select * from goodsimg where guId='$guId';select * from evaluate where guId='$guId' order by discussTime desc limit 0,3;select * from goodslist where type='$type' limit 0,10;select * from sppingcart where username='$username';select * from goodscollection where guId='$guId' and username='$username'";
     $result1 = multi_query_oop($sql1);
     // var_dump($result1);
     echo json_encode($result1, JSON_UNESCAPED_UNICODE);

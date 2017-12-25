@@ -12,6 +12,7 @@ class AddressComponent extends React.Component {
 			<div className="x_address">
 				<div className="x_address_head">
 					<i className="iconfont icon-arrowleft" onClick={this.back.bind(this)}></i>
+
 					<p className="x_c_title">地址管理</p>
 					<span onClick={this.add.bind(this)}>新增</span>
 				</div>
@@ -19,7 +20,7 @@ class AddressComponent extends React.Component {
 					<ul>
 						{
 							this.props.dataset.map(function(obj,idx){
-								return <li key={'1'+idx} data-id={obj.id} data-uid={obj.uid}><div className="x_address_top"><div>
+								return <li key={'1'+idx} data-id={obj.id} data-uid={obj.uid} onClick={this.choice_add.bind(this)} ><div className="x_address_top"><div>
 									<span ref="aname">{obj.rname}</span>
 									<span>{obj.phone}</span>
 								</div>
@@ -49,9 +50,27 @@ class AddressComponent extends React.Component {
 		)
 	}
 
+	//跳回订单传地址
+	choice_add(event){
+		if(this.props.params.order_guid){
+			let address_id = '';
+			let pathord = '';
+			if(event.target.tagName.toLowerCase() == 'span' || event.target.tagName.toLowerCase() == 'p'){
+				address_id = event.target.parentElement.parentElement.parentElement.dataset.id;
+				pathord = '/order_p/' + this.props.params.order_guid + '/' + address_id;
+				hashHistory.push(pathord);
+			}else{
+				address_id = event.target.parentElement.parentElement.dataset.id;
+				pathord = '/order_p/' + this.props.params.order_guid + '/' + address_id;
+				hashHistory.push(pathord);
+			}
+			
+		}
+	}
+
 	// 这里的username是登陆时的username,其他地方一样
 	componentDidMount(){
-		this.props.getData('address.php',{username:'007'});
+		this.props.getData('address.php',{username: localStorage.username});
 		// console.log(this.props.dataset)
 	}
 
@@ -108,7 +127,6 @@ class AddressComponent extends React.Component {
 }
 
 const mapToState = function(state){
-	// console.log(state);
 	return {
 		dataset: state.address.response || []
 	}

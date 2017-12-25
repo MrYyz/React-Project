@@ -139,9 +139,9 @@ ul.li_nav{
         
     }
 }
-.indexfooter{
-    height: 1.336554rem;
-}
+// .indexfooter{
+//     height: 1.336554rem;
+// }
 .indexgoodslist{
         display: flex;
         flex-wrap: wrap;
@@ -184,4 +184,8 @@ ul.li_nav{
         margin:0 auto;
     }      
 }
+}
+.spinner{
+    height: 14.492754rem;
+    position: relative;
 }

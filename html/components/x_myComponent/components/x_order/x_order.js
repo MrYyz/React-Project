@@ -80,13 +80,13 @@ class OrderComponent extends React.Component {
 
 	componentDidMount(){
 		var s = this.props.location.query.state;
-		// console.log(s);
+		console.log(s);
 		if(!s || s == '所有订单') s = "全部";
-		this.props.getData('order.php',{state: s});
+		this.props.getData('order.php',{state: s,username: localStorage.username});
 	}
 
 	change(ev){
-		this.props.getData('order.php',{state:ev.target.innerHTML});
+		this.props.getData('order.php',{state:ev.target.innerHTML,username: localStorage.username});
 	}
 
 	tab(idx){
@@ -111,7 +111,7 @@ class OrderComponent extends React.Component {
 		// console.log(o_state[this.state.index]);
 		let oid = event.target.parentElement.parentElement.parentElement.dataset.oid;
 		if(oid){
-			this.props.getData('order.php',{action:"del",oid: oid,state:o_state[this.state.index]});
+			this.props.getData('order.php',{action:"del",oid: oid,state:o_state[this.state.index],username: localStorage.username});
 		}
 	}
 
@@ -126,7 +126,7 @@ class OrderComponent extends React.Component {
 		let oid = event.target.parentElement.parentElement.parentElement.dataset.oid;
 		// console.log(oid);
 		if(oid){
-			this.props.getData('order.php',{action:"close",oid: oid,state:o_state[this.state.index]});
+			this.props.getData('order.php',{action:"close",oid: oid,state:o_state[this.state.index],username: localStorage.username});
 		}
 	}
 }

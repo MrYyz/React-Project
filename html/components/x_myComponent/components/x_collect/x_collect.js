@@ -45,7 +45,7 @@ class CollectComponent extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getData('collect.php',{username:'carl'});
+		this.props.getData('collect.php',{username: localStorage.username});
 		console.log(this.props.dataset)
 	}
 

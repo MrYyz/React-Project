@@ -18,7 +18,7 @@ export default class FooterComponent extends React.Component{
         switch (route) {
             case 'toIndex':
                 arr[0].className = 'changeRed';
-                hashHistory.push('products');//例子：主页
+                hashHistory.push('index');//例子：主页
                 break;
             case 'toType':
                 arr[0].className = 'changeRed';

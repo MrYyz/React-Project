@@ -13,7 +13,7 @@ class CartComponent extends React.Component{
         let qty = event.target.previousElementSibling.innerHTML;
         event.target.previousElementSibling.innerHTML = qty*1 + 1;
         let elLi = event.target.parentElement.parentElement.parentElement
-        this.props.getCartData('cart_p.php',{guId:elLi.dataset.id,username:'carl',goodsQty:event.target.previousElementSibling.innerHTML,sort:'updata'},'get')
+        this.props.getCartData('cart_p.php',{guId:elLi.dataset.id,username:window.localStorage.username,goodsQty:event.target.previousElementSibling.innerHTML,sort:'updata'},'get')
         this.all_qty();
     }
     min_quantity(event){
@@ -23,7 +23,7 @@ class CartComponent extends React.Component{
             event.target.nextElementSibling.innerHTML = 1;
         }
         let elLi = event.target.parentElement.parentElement.parentElement
-        this.props.getCartData('cart_p.php',{guId:elLi.dataset.id,username:'carl',goodsQty:event.target.nextElementSibling.innerHTML,sort:'updata'},'get')
+        this.props.getCartData('cart_p.php',{guId:elLi.dataset.id,username:window.localStorage.username,goodsQty:event.target.nextElementSibling.innerHTML,sort:'updata'},'get')
         this.all_qty();
     }
     //全选
@@ -96,13 +96,13 @@ class CartComponent extends React.Component{
         let li = document.querySelectorAll('.ele_li');
         for(var i=0;i<choose.length;i++){
             if(choose[i].checked){
-                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:'carl',sort:'del'},'get')
+                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,sort:'del'},'get')
             }
         }
     }
     //数据请求
     componentDidMount(){
-        this.props.getCartData('cart_p.php',{username:'carl'},'get')
+        this.props.getCartData('cart_p.php',{username:window.localStorage.username},'get')
     }
     //跳转详情页
     skip(event){
@@ -112,7 +112,6 @@ class CartComponent extends React.Component{
     }
     //跳转订单页面
     skip_ord(){
-        console.log(666)
         let choose = document.querySelectorAll('.o_choose');
         let li = document.querySelectorAll('.ele_li');
         let order_guid = 'g' + Date.now();
@@ -120,7 +119,9 @@ class CartComponent extends React.Component{
             if(choose[i].checked){
                 let qty = li[i].lastElementChild.lastElementChild.firstElementChild.nextElementSibling.innerHTML*1;
                 let price = li[i].children[2].children[1].children[0].innerHTML*1;
-                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:'carl',goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:qty*price,sort:'order'},'get')
+                let tota = (qty*price).toFixed(2);
+                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,sort:'del'},'get')
+                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:tota,sort:'order'},'get')
             }
         }
         let path = '/order_p/' + order_guid;
@@ -128,7 +129,7 @@ class CartComponent extends React.Component{
     }
     //跳转帮助
     skip_help(){
-        hashHistory.push('/');
+        hashHistory.push('/help');
     }
     render(){
         return (
@@ -141,7 +142,7 @@ class CartComponent extends React.Component{
                     <ul ref="ele_ul">
                         {
                             this.props.dataset_p.map(function(item,index){
-                                return <li className="ele_li" data-id={item.guId} key={item.id}><div><div><input type="checkbox" className="o_choose" onClick={this.choose.bind(this)}/><i className="iconfont icon-gouxuananniu"></i></div></div><div><img src="/html/imgs/b.jpg"  onClick={this.skip.bind(this)}/></div><div><p  onClick={this.skip.bind(this)}>{item.name}</p><span>单价：￥<i>{item.price}</i></span><div><i onClick={this.min_quantity.bind(this)}>-</i><span>{item.goodsQty}</span><i onClick={this.add_quantity.bind(this)}>+</i></div></div></li>
+                                return <li className="ele_li" data-id={item.guId} key={item.id}><div><div><input type="checkbox" className="o_choose" onClick={this.choose.bind(this)}/><i className="iconfont icon-gouxuananniu"></i></div></div><div><img src={item.imgUrl}  onClick={this.skip.bind(this)}/></div><div><p  onClick={this.skip.bind(this)}>{item.name}</p><span>单价：￥<i>{item.price}</i></span><div><i onClick={this.min_quantity.bind(this)}>-</i><span>{item.goodsQty}</span><i onClick={this.add_quantity.bind(this)}>+</i></div></div></li>
                             }.bind(this))
                         }
                     </ul>

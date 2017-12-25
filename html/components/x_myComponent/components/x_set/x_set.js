@@ -39,7 +39,7 @@ class SetComponent extends React.Component {
 
 				</div>
 				<div className="x_set_footer">
-					<p>退出当前账号</p>
+					<p onClick={this.out.bind(this)}>退出当前账号</p>
 				</div>
 			</div>
 		)
@@ -52,13 +52,25 @@ class SetComponent extends React.Component {
 		})
 	}
 	componentDidMount(){
-		this.props.getData('person.php',{username:'123'});
+		this.props.getData('person.php',{username: localStorage.username});
 	}
 
 	// 返回上一级
 	back(){
 		this.props.router.goBack();
 	}
+
+	//clear退出登陆
+	out(){
+		hashHistory.push({
+			pathname: 'login'
+		})
+
+		if(window.localStorage.username){
+			window.localStorage.username = "";
+		}
+	}
+
 }
 
 const mapToState = function(state){

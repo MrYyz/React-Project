@@ -47,11 +47,11 @@ class SayComponent extends React.Component {
 	}
 
 	componentDidMount(){
-		this.props.getData('say.php',{username:'jack'});
+		this.props.getData('say.php',{username:localStorage.username});
 	}
 
 	change(event){
-		this.props.getData('say.php',{username:'jack'});
+		this.props.getData('say.php',{username:localStorage.username});
 	}
 
 	// 返回上一级
