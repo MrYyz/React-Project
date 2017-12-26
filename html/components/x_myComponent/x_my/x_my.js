@@ -199,7 +199,7 @@ class Mycompoent extends React.Component {
 }
 
 const mapToState = function(state){
-	console.log(state);
+	// console.log(state);
 	return {
 		dataset: state.order.response || []
 	}

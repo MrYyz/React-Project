@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './indexComponent.scss'
 import '../../libs/base.css'
@@ -29,10 +30,10 @@ let theLists='xx',indexmain,thelist1='';
             
         }   
         qiandao(){
-            console.log(66);
+            // console.log(66);
         }
         newfunction(){
-            console.log(this);
+            // console.log(this);
             this.setState({lists:thelist1});
            
         }
@@ -78,7 +79,7 @@ let theLists='xx',indexmain,thelist1='';
                             thearr.push(item);
                         }
                     })
-                    console.log(thearr);
+                    // console.log(thearr);
                     thediv.style.display='none';
                     thediv1.style.display='block'; 
                     
@@ -93,7 +94,7 @@ let theLists='xx',indexmain,thelist1='';
                             thearr.push(item);
                         }
                     })
-                    console.log(thearr);
+                    // console.log(thearr);
                     thediv.style.display='none';
                     thediv1.style.display='block'; 
                     
@@ -124,7 +125,7 @@ let theLists='xx',indexmain,thelist1='';
         const li_inner=['推荐','手提包','斜挎包','单肩包'];
         let _style={width: window.innerWidth*nav.length+'px'}
             if(this.props.components&&whatis!=1){
-                console.log(666);
+                // console.log(666);
                 theLists=this.therecommed();
                 window.aa=theLists;
                 window.components=this.props.components;
@@ -132,7 +133,7 @@ let theLists='xx',indexmain,thelist1='';
             if(window.aa&&whatis!=1){
                 theLists=window.aa;
             }
-           console.log(thelist1,'dfkasdfk;ldsfk;lfk');
+           // console.log(thelist1,'dfkasdfk;ldsfk;lfk');
         return (
             <div id="container" style={{height : window.innerHeight+'px'}}>
                 <div className="indexheader">
