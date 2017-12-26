@@ -10,14 +10,15 @@ import * as Indexactions from './indexaction'
 import {connect} from 'react-redux'
 import Spinner from '../spinner/spinnerComponent';
 
-let theul,theWidth,li=1;
+let theul,theWidth,li=1,arrdata=[],whatis;
 
-let theLists='xx',indexmain;
+let theLists='xx',indexmain,thelist1='';
 
  class IndexComponent extends React.Component{
         state={
             banner: '',
             lists:''
+
         }
      
         therecommed(){
@@ -30,13 +31,15 @@ let theLists='xx',indexmain;
         qiandao(){
             console.log(66);
         }
+        newfunction(){
+            console.log(this);
+            this.setState({lists:thelist1});
+           
+        }
+
         thechange(e){
             var thediv=document.querySelector('.theindex');
             var thediv1=document.querySelector('.indexmain1');
-            
-    
-            
-
             
             var arr=JSON.parse(this.props.thedata);
             var thearr=[];
@@ -116,23 +119,27 @@ let theLists='xx',indexmain;
     }
 
     render(){
+      
         const nav=['li1','li2','li3','li4'];
         const li_inner=['推荐','手提包','斜挎包','单肩包'];
         let _style={width: window.innerWidth*nav.length+'px'}
-            if(this.props.components){
+            if(this.props.components&&whatis!=1){
+                console.log(666);
                 theLists=this.therecommed();
                 window.aa=theLists;
+                window.components=this.props.components;
             }   
-            if(window.aa){
+            if(window.aa&&whatis!=1){
                 theLists=window.aa;
             }
+           console.log(thelist1,'dfkasdfk;ldsfk;lfk');
         return (
             <div id="container" style={{height : window.innerHeight+'px'}}>
                 <div className="indexheader">
                     <div className="li_imfor iconfont" ref="xx">
                      <p>
                         <span className="icon-wxbsousuotuiguang"></span>
-                        <span><input type="text" placeholder="搜一搜全球好货"/></span>
+                        <span><input type="text" placeholder="搜一搜全球好货" className="myinput"/></span>
                      </p>
                             <span className="icon-tips" onClick={this.toMsgComponent}></span>
                      </div>
@@ -141,12 +148,12 @@ let theLists='xx',indexmain;
                                 return <li className={item} key={idx}>{li_inner[idx]}</li>
                               })}    
                         </ul>
-                     </div>
+                    </div>
                 <div className="indexmain">
                      <div className="spinner">
                               <Spinner></Spinner>
                         </div>
-                     <div className="theindex"  onClick={this.theparams}>{theLists}</div>
+                     <div className="theindex"  onClick={this.theparams}>{thelist1!=''?thelist1:theLists}</div>
                      <div className="indexmain1" onClick={this.theparams}>{this.state.lists}</div>
                 </div>
                <div className="indexfooter"></div>
@@ -155,15 +162,41 @@ let theLists='xx',indexmain;
     }
     componentDidUpdate(){
         if(this.props.components){
-            theul=document.querySelector('.bannerul');
-            theWidth=window.innerWidth;
+                    theul=document.querySelector('.bannerul');
+                    theWidth=window.innerWidth;
 
-            window.handbag=this.props.handbag;
+                    window.handbag=this.props.handbag;
 
 
-            document.querySelector('.spinner').style.display='none';
-            this.props.banner(theWidth,theul);
+                    document.querySelector('.spinner').style.display='none';
+                    this.props.banner(theWidth,theul);
+
+
+                    arrdata=JSON.parse(this.props.thedata);
+                       var thethis=this;
+                      
+                        document.querySelector('.myinput').onblur=function(){
+                            whatis=1;
+                            var val=this.value;
+                            var reg=new RegExp(val,'ig');
+                             var newarr=[];
+                           
+                                arrdata.forEach(function(item,idx){
+                                        if(item.type.search(reg)>=0||item.name.search(reg)>=0){
+                                            newarr.push(item);
+                                   
+                                        }
+                                  })
+                                  if(newarr.length<=0){
+                                      return ;
+                                  }
+                                  thelist1=window.components(newarr);
+                                  thethis.newfunction()
+                        }
+
         }
+       
+
     }
             componentDidMount(){
                 

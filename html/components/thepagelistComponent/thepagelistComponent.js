@@ -3,8 +3,11 @@ import { hashHistory } from 'react-router';
 import * as thepageActions from './thepageAction.js';
 import {connect} from 'react-redux'
 import './thepage.scss';
-let thisdata,thatdata,isarray=[],thei=0;
+let thisdata,thatdata,isarray=[],thei=0,whatis,thecontent,thelist1='',arrdata;
    class ThepageComponent extends React.Component{
+        state={
+            lists:''
+        }
     thepagemain(arr){
               return  <div className="thelist">
                         <h1>--- 为你推荐 ---</h1>
@@ -27,8 +30,17 @@ let thisdata,thatdata,isarray=[],thei=0;
                   hashHistory.push('/commodity/'+id);
                }
             }
+            newfunction(){
+                
+                this.setState({lists:thelist1});
+               
+            }
+
     render(){
+
+        
             if(this.props.thatdata){
+             
                 thatdata=this.props.thatdata;
                 isarray=[];
                 thatdata.forEach(function(item,idx){
@@ -40,23 +52,55 @@ let thisdata,thatdata,isarray=[],thei=0;
                             }
                         }
                 })
-               var thecontent= this.thepagemain(isarray);
+               thecontent= this.thepagemain(isarray);
+             
+              
+
             }
         return (<div className="thepagediv">
                       <div className="indexheader">
                                 <div className="li_imfor iconfont" ref="xx">
                                   <p>
                                     <span className="icon-wxbsousuotuiguang"></span>
-                                    <span><input type="text" placeholder="搜一搜全球好货"/></span>
-                                  </p>
-                                  <span className="icon-tips"></span>
+                                    <span><input type="text" placeholder="搜一搜全球好货" className='theinput'/></span>
+                                </p>
+                                        <span className="icon-tips"></span>
                                 </div>
                              
                         </div>
                         <div className="pageMain" onClick={this.theparams}>
-                            {thecontent}
+                            {thelist1!=''?  thelist1 : thecontent}
                         </div>
                 </div>)
+    }
+    componentDidUpdate(){
+ 
+            if(this.props.thatdata){
+           
+            arrdata=this.props.thatdata;
+            var thethis=this;
+      
+             document.querySelector('.theinput').onblur=function(){
+                
+                 whatis=1;
+                 var val=this.value;
+                 var reg=new RegExp(val,'ig');
+                  var newarr=[];
+                
+                     arrdata.forEach(function(item,idx){
+                             if(item.type.search(reg)>=0||item.name.search(reg)>=0){
+                                 newarr.push(item);
+                        
+                             }
+                       })
+                       if(newarr.length<=0){
+                           return ;
+                       }
+                       thelist1=thethis.thepagemain(arrdata);
+                       console.log(thelist1);
+                       thethis.newfunction()
+             }
+            }
     }
     componentWillMount(){
         thisdata=this.props.params.data;

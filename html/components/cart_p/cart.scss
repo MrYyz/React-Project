@@ -85,6 +85,11 @@
                     p{
                         font-size:0.453333rem;//34px
                         line-height:0.533333rem;//40px
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        padding-top:0.2rem;
+                        overflow:hidden;
                     }
                     >span{
                         display:inline-block;
