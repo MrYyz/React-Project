@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Link} from "react-router"
+import {Link,hashHistory} from "react-router"
 import {connect} from 'react-redux'
 import { Tabs, WhiteSpace, Badge } from 'antd-mobile'
 import { Modal, List, WingBlank } from 'antd-mobile';
@@ -72,6 +72,11 @@ class MessageComponent extends React.Component{
         this.props.MessageAction(url,method,params);
       // 关闭的时候发送请求修改消息是否已读？
     }
+    toCommodity(event){
+        const guId = event.target.getAttribute('data-id');
+        // console.log('/commodity/'+guId)
+        hashHistory.push('/commodity/'+guId)
+    }
     render(){
         const style1 = { 
             display: 'flex', 
@@ -117,7 +122,8 @@ class MessageComponent extends React.Component{
                                         if(this.state.existUser){
                                             if(this.props.goodsMsg.length){
                                                 return this.props.goodsMsg.map((item,idx)=>{
-                                                    return <li key={item+idx}><div><img src={item.imgUrl}/></div><div><p><span>{item.name}</span><span>{'￥'+item.price}</span></p><p><span>类型：{item.type}</span><span>{item.status}</span></p><p><span>详情：{item.details}</span><span>{item.regtime}</span></p></div></li>
+                                                    // console.log(item)
+                                                    return <li key={item+idx} data-id={item.guId} onClick={this.toCommodity}><div data-id={item.guId}><img src={item.imgUrl}  data-id={item.guId}/></div><div data-id={item.guId}><p data-id={item.guId}><span data-id={item.guId}>{item.name}</span><span data-id={item.guId}>{'￥'+item.price}</span></p><p data-id={item.guId}><span data-id={item.guId}>类型：{item.type}</span><span data-id={item.guId}>{item.status}</span></p><p data-id={item.guId}><span data-id={item.guId}>详情：{item.details}</span><span data-id={item.guId}>{item.regtime}</span></p></div></li>
                                                 })
                                             }else{
                                                 return <li style={{fontSize:'0.4rem',textAlign:'center',width:'100%',paddingTop:'1rem'}}>暂无消息</li>
@@ -168,3 +174,6 @@ const mapToState = function(state){
 }
 
 export default connect(mapToState,MessageAction)(MessageComponent)
+
+
+// <li key={item+idx} data-id={item.guId} onClick={this.toCommodity}><div data-id={item.guId}><img src={item.imgUrl}  data-id={item.guId}/></div><div data-id={item.guId}><p data-id={item.guId}><span data-id={item.guId}>{item.name}</span><span data-id={item.guId}>{'￥'+item.price}</span></p><p data-id={item.guId}><span data-id={item.guId}>类型：{item.type}</span><span data-id={item.guId}>{item.status}</span></p><p data-id={item.guId}><span data-id={item.guId}>详情：{item.details}</span><span data-id={item.guId}>{item.regtime}</span></p></div></li>

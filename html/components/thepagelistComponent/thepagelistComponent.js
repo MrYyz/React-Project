@@ -5,63 +5,51 @@ import {connect} from 'react-redux'
 import './thepage.scss';
 let thisdata,thatdata,isarray=[],thei=0;
    class ThepageComponent extends React.Component{
-
-
-    
     thepagemain(arr){
-            return     <div className="thelist">
-                                                    <h1>--- 为你推荐 ---</h1>
-                                <div className="indexgoodslist">{
-                                    arr.map(function(item,idx){
-                                        return  <div className="indexlist"  key={'list'+idx} id={item.guId}>
-                                                    <div style={{backgroundImage: 'url('+item.imgUrl+')'}} className="Indeximg"> </div>                     
-                                                    <p>{item.name}</p>
-                                                    <p>￥{item.price}</p>
-                                                    <p>美国亚马逊供货</p>
-                                                </div>
-                                    })
-                                }
-                                </div>
-                            </div>
+              return  <div className="thelist">
+                        <h1>--- 为你推荐 ---</h1>
+                        <div className="indexgoodslist">{
+                            arr.map(function(item,idx){
+                                return  <div className="indexlist"  key={'list'+idx} id={item.guId}>
+                                          <div style={{backgroundImage: 'url('+item.imgUrl+')'}} className="Indeximg"></div>                     
+                                          <p>{item.name}</p>
+                                          <p>￥{item.price}</p>
+                                          <p>美国亚马逊供货</p>
+                                        </div>
+                            })
+                        }
+                        </div>
+                      </div>
                    }
-
-
             theparams(e){
                if(e.target.parentNode.className=='indexlist'){
                   var id=e.target.parentNode.id;
                   hashHistory.push('/commodity/'+id);
                }
             }
-
     render(){
-    
             if(this.props.thatdata){
                 thatdata=this.props.thatdata;
-              
                 isarray=[];
                 thatdata.forEach(function(item,idx){
-                   
                         if(thisdata=='全部'){
                             isarray=thatdata;
                         }else{
                             if(item.type==thisdata){
-                               
                                 isarray.push(item);
                             }
                         }
                 })
-           
                var thecontent= this.thepagemain(isarray);
-              
             }
         return (<div className="thepagediv">
                       <div className="indexheader">
                                 <div className="li_imfor iconfont" ref="xx">
-                                <p>
+                                  <p>
                                     <span className="icon-wxbsousuotuiguang"></span>
                                     <span><input type="text" placeholder="搜一搜全球好货"/></span>
-                                </p>
-                                        <span className="icon-tips"></span>
+                                  </p>
+                                  <span className="icon-tips"></span>
                                 </div>
                              
                         </div>

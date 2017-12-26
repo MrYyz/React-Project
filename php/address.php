@@ -24,6 +24,9 @@ switch ($action) {
 		//添加
 		$sql = "INSERT into `address` (address,`default`,uid,rname) VALUES ('${address}','${default}','${uid}','${rname}')";
 		$result = excute($sql);
+		$sql1 = "select * from userlist as u inner join address as a on u.id = a.uid where u.username = '${username}'";
+		$res = query($sql1);
+		echo json_encode($res, JSON_UNESCAPED_UNICODE);
 		break;
 	case 'del':
 		// 删除
@@ -37,8 +40,12 @@ switch ($action) {
 		break;
     case 'update':
     	// 更新
-		$sql = "UPDATE `userlist` as u INNER JOIN address as a ON u.id = a.uid SET u.phone = '${phone}', a.address = '${address}' WHERE a.id = '${id}'";
+		$sql = "UPDATE `userlist` as u INNER JOIN address as a ON u.id = a.uid SET u.phone = '${phone}', a.address = '${address}', a.rname = '${rname}' WHERE a.id = '${id}'";
 		$result = excute($sql);
+
+		$sql1 = "select * from userlist as u inner join address as a on u.id = a.uid where u.username = '${username}'";
+		$res = query($sql1);
+		echo json_encode($res, JSON_UNESCAPED_UNICODE);
 		break;
 	default:
 		// 查询

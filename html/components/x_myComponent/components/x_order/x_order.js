@@ -39,7 +39,7 @@ class OrderComponent extends React.Component {
 						{
 							this.props.dataset.map(function(obj,index){
 								return 	<li key={'1'+index} data-oid={obj.order_guid}><div className="x_order_goods_content"><div className="x_ordert_img">
-								<img src="./case.png" />
+								<img src={obj.imgUrl} />
 								</div><div className="x_order_decoration">
 								<div className="x_o_d_left">
 								<p className="">{obj.name}</p></div>

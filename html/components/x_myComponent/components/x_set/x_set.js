@@ -62,13 +62,8 @@ class SetComponent extends React.Component {
 
 	//clear退出登陆
 	out(){
-		hashHistory.push({
-			pathname: 'login'
-		})
-
-		if(window.localStorage.username){
-			window.localStorage.username = "";
-		}
+		window.localStorage.clear();
+		hashHistory.push({pathname: 'login'})
 	}
 
 }

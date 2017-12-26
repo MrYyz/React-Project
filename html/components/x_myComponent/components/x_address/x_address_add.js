@@ -46,8 +46,10 @@ class AddComponent extends React.Component {
 			action: 'insert'
 		}
 		// console.log(info);
+		// console.log(info);
 		this.props.getData('address.php',info);
-		hashHistory.push({pathname:'address'});
+		// hashHistory.push({pathname:'address'});
+		this.props.router.goBack();
 	}
 
 	// 返回上一级

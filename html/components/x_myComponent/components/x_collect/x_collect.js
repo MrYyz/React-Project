@@ -24,7 +24,7 @@ class CollectComponent extends React.Component {
 							this.props.dataset.map(function(obj,index){
 								return 	<li key={1+index} onClick={this.push_detail.bind(this)} data-id={obj.guId}>
 											<div className="x_collect_img">
-												<img src="./case.png" />
+												<img src={obj.imgUrl} />
 											</div>
 											<div className="x_collect_decoration">
 												<p>{obj.name}</p>

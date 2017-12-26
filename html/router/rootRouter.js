@@ -11,6 +11,7 @@ import zhekouComponent from '../components/zhekou/zhekouComponet'
 import LoginComponent from '../components/login/loginComponent.js'
 import RegisterComponent from '../components/register/registerComponent.js'
 import MessageComponent from '../components/message/messageComponent.js'
+import ServiceComponent from '../components/service/serviceComponent.js'
 
 import '../libs/base.css'
 
@@ -61,6 +62,7 @@ export default class RootRouter extends React.Component{
                     <Route path="edtAddress" component={EdtAddress}></Route>
                     <Route path="addAddress" component={AddComponent}></Route>
                     <Route path="cart" component={CartComponent}></Route>
+                    
                     <Route path="ruihuan" component={Indexruihuan}></Route>                
                     <Route path="regist" component={Indexregist}></Route>
                     <Route path="/zhekou" component={zhekouComponent}></Route>  
@@ -68,6 +70,8 @@ export default class RootRouter extends React.Component{
                 <Route path="/login" component={LoginComponent}></Route>
                 <Route path="/register" component={RegisterComponent}></Route>
                 <Route path="/message" component={MessageComponent}></Route>
+                <Route path="/service" component={ServiceComponent}></Route>
+
                 <Route path="/commodity(/:guId)" component={CommodityComponet}></Route>
                 <Route path="/comments(/:guId)" component={CommentsComponent}></Route>
                 <Route path="/order_p(/:order_guid)(/:id)" component={Order_pComponent}></Route>

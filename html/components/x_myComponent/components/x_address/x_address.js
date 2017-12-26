@@ -20,8 +20,8 @@ class AddressComponent extends React.Component {
 					<ul>
 						{
 							this.props.dataset.map(function(obj,idx){
-								return <li key={'1'+idx} data-id={obj.id} data-uid={obj.uid} onClick={this.choice_add.bind(this)} ><div className="x_address_top"><div>
-									<span ref="aname">{obj.rname}</span>
+								return <li key={'1'+idx} data-username={obj.username} data-id={obj.id} data-uid={obj.uid} onClick={this.choice_add.bind(this)} ><div className="x_address_top"><div>
+									<span>{obj.rname}</span>
 									<span>{obj.phone}</span>
 								</div>
 								<div><p>{obj.address}</p></div>
@@ -86,9 +86,11 @@ class AddressComponent extends React.Component {
 	// 编辑收货地址
 	ed(event){
 		var aid = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
+		var username = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-username');
+		// console.log(aid,rname);
 		hashHistory.push({
 			pathname: 'edtAddress',
-			query: {aid:aid,username:this.refs.aname.innerHTML,str:'编辑地址'}
+			query: {aid:aid,username:username,str:'编辑地址'}
 		});
 	}
 
@@ -97,8 +99,10 @@ class AddressComponent extends React.Component {
 		var aid = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
 		var info = {
 			id: aid,
-			action: 'del'
+			action: 'del',
+			username: localStorage.username
 		}
+		// console.log(info);
 		this.props.getData('address.php',info);
 	}
 
@@ -127,6 +131,7 @@ class AddressComponent extends React.Component {
 }
 
 const mapToState = function(state){
+	console.log(state);
 	return {
 		dataset: state.address.response || []
 	}

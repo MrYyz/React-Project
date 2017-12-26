@@ -3,7 +3,7 @@
 	flex-direction: column;
 	.x_address_head{
 		height:1.25333333rem; // 124px
-		display:flex;
+		//display:flex;
 		i.icon-arrowleft,span{
 			position: absolute;
 			top:0;
@@ -20,6 +20,7 @@
 			font-size:.48rem;
 			margin-left:50%;
 			transform: translate(-50%,0);
+			text-align: center;
 		}
 		span{
 			right:0;
@@ -31,6 +32,7 @@
 	}
 
 	.x_address_body {
+		overflow-x: hidden;
 		background-color: #fff;
 		li {
 			margin-bottom: .26666667rem; // 20px

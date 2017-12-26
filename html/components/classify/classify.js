@@ -8,7 +8,7 @@ export default class classifyComponent extends React.Component{
                 hashHistory.push('/thepagelist/'+params);
            }
         }
-
+      toMsgComponent(){hashHistory.push('/message')}
       render(){
         const nav=['li1','li2','li3','li4'];
         const li_inner=['推荐','手提包','斜挎包','单肩包'];
@@ -22,7 +22,7 @@ export default class classifyComponent extends React.Component{
                                     <span className="icon-wxbsousuotuiguang"></span>
                                     <span><input type="text" placeholder="搜一搜全球好货"/></span>
                                 </p>
-                                        <span className="icon-tips"></span>
+                                        <span className="icon-tips" onClick={this.toMsgComponent}></span>
                                 </div>
                              
                         </div>

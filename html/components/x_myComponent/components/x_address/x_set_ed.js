@@ -44,10 +44,11 @@ class EdtComponent extends React.Component {
 	}
 
 	componentDidMount(){
-		var rname = this.props.location.query.username;
+		var aid = this.props.location.query.aid;
+		var username = this.props.location.query.username;
 		// this.props.getData('address.php');
 		// console.log(this.props.location);
-		this.props.getData('address.php');
+		this.props.getData('address.php',{id: aid,username:username});
 	}
 
 	// 编辑地址
@@ -56,9 +57,13 @@ class EdtComponent extends React.Component {
 			id: this.props.location.query.aid,
 			address: this.refs.dz.value,
 			phone: this.refs.sj.value,
+
 			// 收货人名字
+			username: localStorage.username,
+			rname: this.refs.r.value,
 			action: 'update'
 		}
+		// console.log(info);
 		this.props.getData('address.php',info);
 	}
 
