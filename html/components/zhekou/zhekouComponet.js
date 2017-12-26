@@ -13,6 +13,12 @@ let arr=[],datalists,theisgood;
     theisgood(e){
         console.log(e.target.innerHTML.splice(1,1));
     }
+    theparams(e){
+        if(e.target.parentNode.className=='contanier'){
+           var id=e.target.parentNode.id;
+           hashHistory.push('/commodity/'+id);
+        }
+     }
     render(){
             // console.log(this.props.status);
             if(this.props.status==1){
@@ -24,7 +30,7 @@ let arr=[],datalists,theisgood;
                      return (<div className="datalists iconfont" key={idx+"thedata"} id={item.guId}>
                                
                              <p>{time}</p>
-                                <div className="contanier"> 
+                                <div className="contanier" id={item.guId} > 
                                        
                                   <div className="imgurl" style={{backgroundImage:'url('+item.imgUrl+')',backgroundSize:'100% 100%'}}></div>  
                                   <div className="contanier1">
@@ -41,7 +47,7 @@ let arr=[],datalists,theisgood;
                                     <span className="icon-arrowleft" onClick={this.thereturn}></span>
                                     <span>抢折扣</span>          
                          </div>
-                         <div className="zhekoumain">
+                         <div className="zhekoumain" onClick={this.theparams}>
                                 {datalists}
                          </div>
                     </div>)
