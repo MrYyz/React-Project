@@ -52,6 +52,7 @@ class LoginComponent extends React.Component{
             storage.setItem('phone',this.props.dataset[0].phone)
             storage.setItem('username',this.props.dataset[0].username)
             storage.setItem('password',this.props.dataset[0].password)
+            storage.setItem('id',this.props.dataset[0].id)
             // console.log('componentDidUpdate=2',this.props.dataset[0],storage)
         }
     }
@@ -86,7 +87,7 @@ class LoginComponent extends React.Component{
 }
 
 const mapToState = function(state){
-    // console.log('state111',state)
+    console.log('state111',state)
     return{
         type:state.LoginReducer.status,
         dataset:state.LoginReducer.body || [],

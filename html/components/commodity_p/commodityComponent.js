@@ -113,7 +113,7 @@ class CommodityComponent extends React.Component{
     //确认按钮
     verify_p(){
         let initparams = this.props.params.guId;
-        if(this.state.status_p == 'join_p'){
+        if(this.state.status_p == 'join_p' && window.localStorage.username){
             //确认加入购物车
             this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username,goodsQty:this.refs.comqty_p.innerHTML,sort:'join'},'get');
             this.refs.tanc.classList.remove('tanc_ative');
@@ -123,13 +123,15 @@ class CommodityComponent extends React.Component{
                 this.shopqty(this.props.dataset_p5);
                 this.refs.upwin.classList.remove('upwin_active');
             },500)
-        }else if(this.state.status_p == 'buy_p'){
+        }else if(this.state.status_p == 'buy_p' && window.localStorage.username){
             //确认购买并跳转到订单页面
             let order_guid = 'g' + Date.now();
             let total = (this.refs.comqty_p.innerHTML*this.props.dataset_p1[0].price).toFixed(2);
             this.props.getComData('commodity_p.php',{guId:initparams,username:window.localStorage.username,goodsQty:this.refs.comqty_p.innerHTML,order_guid:order_guid,order_status:'待付款',total:total,sort:'buy'},'get')
             let path = '/order_p/' + order_guid;
             hashHistory.push(path);
+        }else{
+            alert('请登陆')
         }
     }
     //猜你喜欢跳转

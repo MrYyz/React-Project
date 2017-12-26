@@ -33,7 +33,7 @@ class AddComponent extends React.Component {
 
 	componentDidMount(){
 		// this.props.getData('ad_tx.php',{username:'123'});
-		// this.props.getData('address.php',this.props.location.query);
+		// this.props.getData('address.php',{username:window.localStorage.username});
 		// console.log()
 	}
 
@@ -42,7 +42,7 @@ class AddComponent extends React.Component {
 		var info = {
 			address: this.refs.dz.value,
 			rname: this.refs.r.value,
-			uid: this.props.datasetEd[0].uid,
+			uid: window.localStorage.id,
 			action: 'insert'
 		}
 		// console.log(info);
@@ -59,7 +59,6 @@ class AddComponent extends React.Component {
 }
 
 const mapToState = function(state){
-	console.log(state);
 	return {
 		datasetEd: state.address.response || []
 	}

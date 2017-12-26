@@ -112,20 +112,28 @@ class CartComponent extends React.Component{
     }
     //跳转订单页面
     skip_ord(){
-        let choose = document.querySelectorAll('.o_choose');
-        let li = document.querySelectorAll('.ele_li');
-        let order_guid = 'g' + Date.now();
-        for(var i=0;i<choose.length;i++){
-            if(choose[i].checked){
-                let qty = li[i].lastElementChild.lastElementChild.firstElementChild.nextElementSibling.innerHTML*1;
-                let price = li[i].children[2].children[1].children[0].innerHTML*1;
-                let tota = (qty*price).toFixed(2);
-                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,sort:'del'},'get')
-                this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:tota,sort:'order'},'get')
+        if(window.localStorage.username){
+            let choose = document.querySelectorAll('.o_choose');
+            let li = document.querySelectorAll('.ele_li');
+            let order_guid = 'g' + Date.now();
+            if(this.state.allQty == 0){
+                alert('请选择商品');
+                return;
             }
+            for(var i=0;i<choose.length;i++){
+                if(choose[i].checked){
+                    let qty = li[i].lastElementChild.lastElementChild.firstElementChild.nextElementSibling.innerHTML*1;
+                    let price = li[i].children[2].children[1].children[0].innerHTML*1;
+                    let tota = (qty*price).toFixed(2);
+                    this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,sort:'del'},'get')
+                    this.props.getCartData('cart_p.php',{guId:li[i].dataset.id,username:window.localStorage.username,goodsQty:qty,order_guid:order_guid,order_status:'待付款',total:tota,sort:'order'},'get')
+                }
+            }
+            let path = '/order_p/' + order_guid;
+            hashHistory.push(path);
+        }else{
+            alert('请登陆')
         }
-        let path = '/order_p/' + order_guid;
-        hashHistory.push(path);
     }
     //跳转帮助
     skip_help(){

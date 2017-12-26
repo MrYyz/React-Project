@@ -9,12 +9,13 @@ import './ruihuan.scss'
 
 export default class RuihuanComponent extends React.Component{
     thereturn(){
-        hashHistory.push('index');
+        // hashHistory.push('index');
+        this.props.router.goBack();
     }
         render(){
             return (<div className="iconfont">
                          <div className="ruihuan-header">
-                                    <span className="icon-arrowleft" onClick={this.thereturn}></span>
+                                    <span className="icon-arrowleft" onClick={this.thereturn.bind(this)}></span>
                                     <span>优惠卷-比呀比亚海外购</span>          
                          </div>
                          <div className="youhui">

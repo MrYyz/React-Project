@@ -177,6 +177,7 @@ let theLists='xx',indexmain,thelist1='';
                        var thethis=this;
                       
                         document.querySelector('.myinput').onblur=function(){
+                          document.querySelector('.indexmain1').style.display='none';
                             whatis=1;
                             var val=this.value;
                             var reg=new RegExp(val,'ig');

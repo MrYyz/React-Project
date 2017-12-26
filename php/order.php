@@ -22,7 +22,7 @@ $sql = "select * from orders as o inner join goodslist as g on g.guId = o.guId w
 if($state != '全部'){
 	$sql .= " and order_status = '${state}'";
 }
-
+$sql .= " order by order_time desc";
 // echo $sql;
 $res = query($sql);
 
