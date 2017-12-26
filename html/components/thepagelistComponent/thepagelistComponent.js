@@ -4,6 +4,7 @@ import * as thepageActions from './thepageAction.js';
 import {connect} from 'react-redux'
 import './thepage.scss';
 let thisdata,thatdata,isarray=[],thei=0,whatis,thecontent,thelist1='',arrdata;
+
    class ThepageComponent extends React.Component{
         state={
             lists:''
@@ -73,20 +74,21 @@ let thisdata,thatdata,isarray=[],thei=0,whatis,thecontent,thelist1='',arrdata;
                         </div>
                 </div>)
     }
+    
     componentDidUpdate(){
  
             if(this.props.thatdata){
            
             arrdata=this.props.thatdata;
             var thethis=this;
-      
+            thelist1='';
              document.querySelector('.theinput').onblur=function(){
-                
+                thelist1='';
                  whatis=1;
                  var val=this.value;
                  var reg=new RegExp(val,'ig');
                   var newarr=[];
-                
+
                      arrdata.forEach(function(item,idx){
                              if(item.type.search(reg)>=0||item.name.search(reg)>=0){
                                  newarr.push(item);
@@ -96,8 +98,8 @@ let thisdata,thatdata,isarray=[],thei=0,whatis,thecontent,thelist1='',arrdata;
                        if(newarr.length<=0){
                            return ;
                        }
-                       thelist1=thethis.thepagemain(arrdata);
-                       console.log(thelist1);
+                       thelist1=thethis.thepagemain(newarr);
+                     
                        thethis.newfunction()
              }
             }
